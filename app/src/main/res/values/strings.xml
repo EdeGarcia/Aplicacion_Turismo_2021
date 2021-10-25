@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">ProyectoPDDM2021</string>
+    <string name="turista_icon_name">Turista</string>
+    <string name="lugar_icon_name">Lugar Turístico</string>
 </resources>
