@@ -1,3 +1,17 @@
 <resources>
     <string name="app_name">ProyectoPDDM2021</string>
+    <string name="usuario_turista">Usuario:</string>
+    <string name="contrasena_turista">Contraseña:</string>
+    <string name="texto_login_turista_1">Inicio de sesión</string>
+    <string name="texto_login_turista_2">Iniciar sesión</string>
+    <string name="texto_login_turista_3">Ingresar</string>
+    <string name="texto_login_turista_4">Registrar</string>
+    <string name="texto_registro_turista">Registrarse</string>
+    <string name="texto_registro_turista_1">Nombre</string>
+    <string name="texto_registro_turista_2">Apellido</string>
+    <string name="texto_registro_turista_3">Teléfono</string>
+    <string name="texto_registro_turista_4">Usuario</string>
+    <string name="texto_registro_turista_5">Contraseña</string>
+    <string name="texto_registro_turista_6">Confirmar Contraseña</string>
+    <string name="texto_registro_turista_7">Registrar</string>
 </resources>
