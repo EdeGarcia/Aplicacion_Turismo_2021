@@ -14,4 +14,6 @@
     <string name="texto_registro_turista_5">Contraseña</string>
     <string name="texto_registro_turista_6">Confirmar Contraseña</string>
     <string name="texto_registro_turista_7">Registrar</string>
+    <string name="turista_icon_name">Turista</string>
+    <string name="lugar_icon_name">Lugar Turístico</string>
 </resources>

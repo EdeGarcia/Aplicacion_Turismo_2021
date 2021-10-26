@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:drawable="@color/white"/>
+    <item
+        android:width="500dp"
+        android:height="500dp"
+        android:right="50dp"
+        android:left="50dp"
+        android:top="340dp"
+        android:bottom="340dp">
+        <bitmap android:src="@drawable/tour_app_logo"/>
+
+    </item>
+</layer-list>
