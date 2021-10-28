@@ -14,6 +14,13 @@
     <string name="texto_registro_turista_5">Contraseña</string>
     <string name="texto_registro_turista_6">Confirmar Contraseña</string>
     <string name="texto_registro_turista_7">Registrar</string>
+    <string name="texto_registro_admin_1">Editar Lugar Turistico</string>
+    <string name="texto_registro_admin_2">Lugar Turistico</string>
+    <string name="texto_registro_admin_3">Descripcion</string>
+    <string name="texto_registro_admin_4">Teléfono</string>
+    <string name="texto_registro_admin_5">Servicios</string>
+    <string name="texto_registro_admin_6">Coordenadas</string>
+    <string name="btn_registro_admin_1">Siguiente</string>
     <string name="turista_icon_name">Turista</string>
     <string name="lugar_icon_name">Lugar Turístico</string>
 </resources>
