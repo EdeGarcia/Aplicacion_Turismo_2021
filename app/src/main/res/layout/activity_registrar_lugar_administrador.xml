@@ -4,6 +4,182 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".RegistrarLugarAdministrador">
+    android:layout_margin="16dp"
+    tools:context=".RegistrarLugarAdministradorActivity">
+
+    <TextView
+        android:id="@+id/tvTituloEditarAdmin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="@string/txvRegistroAdmin"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        android:textColor="@color/black"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imgPerfil"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/icono_perfil_administrador"
+        app:layout_constraintTop_toBottomOf="@+id/tvTituloEditarAdmin"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginTop="20dp"
+        tools:ignore="MissingConstraints" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/btnAgregarImagenPerfilAdmin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/dark_blue"
+        android:src="@android:drawable/ic_menu_add"
+        app:tint="@color/white"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="205dp"
+        tools:layout_editor_absoluteY="120dp" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/layoutUsuarioAdmin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/txvUsuarioAdmin"
+        app:layout_constraintBottom_toBottomOf="@+id/layoutNombreLugarAdmin"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnAgregarImagenPerfilAdmin"
+        app:layout_constraintVertical_bias="0.01"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        >
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edtUsuarioAdmin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/layoutNombreLugarAdmin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/txvNombreLugarAdmin"
+        app:layout_constraintBottom_toBottomOf="@+id/layoutTelefonoAdmin"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/layoutUsuarioAdmin"
+        app:layout_constraintVertical_bias="0.01"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        >
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edtNombreLugarAdmin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/layoutContraseniaAdmin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/txvContraAdmin"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/layoutNombreLugarAdmin"
+        app:layout_constraintVertical_bias="0.03"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edtContraseniaAdmin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword"
+            />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/layoutConfirmarContraseniaAdmin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/txvConfirmarContraAdmin"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/layoutContraseniaAdmin"
+        app:layout_constraintVertical_bias="0.03"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edtConfirmarContraseniaAdmin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword"
+            />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/layoutTelefonoAdmin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/txvTelefonoAdmin"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/layoutConfirmarContraseniaAdmin"
+        app:layout_constraintVertical_bias="0.03"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edtServiciosLugar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            />
+
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/layoutDescripcionRegistrarAdmin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/texto_registro_admin_3"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/layoutTelefonoAdmin"
+        app:layout_constraintVertical_bias="0.03"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        >
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/edtDescripcionLugarAdmin"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:inputType="textMultiLine"
+        />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <Button
+        android:id="@+id/btnRegistrarUsuarioTurista"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/dark_blue"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/layoutDescripcionRegistrarAdmin"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintVertical_bias="0.25"
+        android:text="@string/btnSiguienteAdmin"
+        android:textAllCaps="false"
+        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

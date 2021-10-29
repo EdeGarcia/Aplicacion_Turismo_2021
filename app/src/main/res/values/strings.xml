@@ -23,4 +23,23 @@
     <string name="btn_registro_admin_1">Siguiente</string>
     <string name="turista_icon_name">Turista</string>
     <string name="lugar_icon_name">Lugar Turístico</string>
+    <string name="txvRegistroAdmin">Registrar Lugar Turistico</string>
+    <string name="txvUsuarioAdmin">Usuario</string>
+    <string name="txvNombreLugarAdmin">Nombre del lugar</string>
+    <string name="txvContraAdmin">Contraseña</string>
+    <string name="txvConfirmarContraAdmin">Confirmar contraseña</string>
+    <string name="txvTelefonoAdmin">Telefono</string>
+    <string name="btnSiguienteAdmin">Siguiente</string>
+    <string name="txvVersion">Versión.</string>
+    <string name="txvV">V: 7.0</string>
+    <string name="txvCreadores">Creadores de la App: </string>
+    <string name="txvNombreCreador1">Tatiana </string>
+    <string name="txvNombreCreador2">Ana </string>
+    <string name="txvNombreCreador3">Eliseo </string>
+    <string name="txvNombreCreador4">Vladimir </string>
+    <string name="txvNombreCreador5">Carlos </string>
+    <string name="txvCarreraCreador">Ingeniería en Sistemas </string>
+    <string name="txvEditarPublicacion">Editar Publicación </string>
+    <string name="btnEditar">Editar</string>
+
 </resources>

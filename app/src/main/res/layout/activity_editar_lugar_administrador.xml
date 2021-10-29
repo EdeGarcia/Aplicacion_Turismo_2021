@@ -83,7 +83,6 @@
             />
 
     </com.google.android.material.textfield.TextInputLayout>
-
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/layoutTelefonoAdmin"
         android:layout_width="match_parent"
@@ -103,7 +102,6 @@
             />
 
     </com.google.android.material.textfield.TextInputLayout>
-
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/layoutServiciosAdmin"
         android:layout_width="match_parent"

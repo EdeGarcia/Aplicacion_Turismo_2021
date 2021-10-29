@@ -4,6 +4,225 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_margin="16dp"
     tools:context=".InformacionAppActivity">
+
+    <TextView
+        android:id="@+id/txvVersionApp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="@string/txvVersion"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/txvV"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/txvV"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txvVersionApp" />
+
+    <TextView
+        android:id="@+id/txvCreadores"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:text="@string/txvCreadores"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txvV"
+        />
+
+    <ImageView
+        android:id="@+id/imgCreador1"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="36dp"
+        android:src="@drawable/icono_perfil_administrador"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txvCreadores"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/txvNombreCreador1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="36dp"
+        android:text="@string/txvNombreCreador1"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintStart_toEndOf="@+id/imgCreador1"
+        app:layout_constraintTop_toBottomOf="@+id/txvCreadores" />
+
+    <TextView
+        android:id="@+id/txvCarreraCreador1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/txvCarreraCreador"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintStart_toEndOf="@+id/imgCreador1"
+        app:layout_constraintTop_toBottomOf="@+id/txvNombreCreador1" />
+
+
+    <ImageView
+        android:id="@+id/imgCreador2"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="36dp"
+        android:src="@drawable/icono_perfil_administrador"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imgCreador1"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/txvNombreCreador2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="36dp"
+        android:text="@string/txvNombreCreador2"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintStart_toEndOf="@+id/imgCreador2"
+        app:layout_constraintTop_toBottomOf="@+id/txvCarreraCreador1" />
+
+    <TextView
+        android:id="@+id/txvCarreraCreador2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/txvCarreraCreador"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintStart_toEndOf="@+id/imgCreador2"
+        app:layout_constraintTop_toBottomOf="@+id/txvNombreCreador2" />
+
+
+    <ImageView
+        android:id="@+id/imgCreador3"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="36dp"
+        android:src="@drawable/icono_perfil_administrador"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imgCreador2"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/txvNombreCreador3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="48dp"
+        android:text="@string/txvNombreCreador3"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintStart_toEndOf="@+id/imgCreador3"
+        app:layout_constraintTop_toBottomOf="@+id/txvCarreraCreador2" />
+
+    <TextView
+        android:id="@+id/txvCarreraCreador3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/txvCarreraCreador"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintStart_toEndOf="@+id/imgCreador3"
+        app:layout_constraintTop_toBottomOf="@+id/txvNombreCreador3" />
+
+    <ImageView
+        android:id="@+id/imgCreador4"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="36dp"
+        android:src="@drawable/icono_perfil_administrador"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imgCreador3"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/txvNombreCreador4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="68dp"
+        android:text="@string/txvNombreCreador4"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintStart_toEndOf="@+id/imgCreador4"
+        app:layout_constraintTop_toBottomOf="@+id/txvCarreraCreador3" />
+
+    <TextView
+        android:id="@+id/txvCarreraCreador4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/txvCarreraCreador"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintStart_toEndOf="@+id/imgCreador4"
+        app:layout_constraintTop_toBottomOf="@+id/txvNombreCreador4" />
+
+
+
+
+
+
+    <ImageView
+        android:id="@+id/imgCreador5"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="36dp"
+        android:src="@drawable/icono_perfil_administrador"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imgCreador4"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/txvNombreCreador5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="38dp"
+        android:text="@string/txvNombreCreador5"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintStart_toEndOf="@+id/imgCreador5"
+        app:layout_constraintTop_toBottomOf="@+id/txvCarreraCreador4" />
+
+    <TextView
+        android:id="@+id/txvCarreraCreador5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="12dp"
+        android:text="@string/txvCarreraCreador"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintStart_toEndOf="@+id/imgCreador5"
+        app:layout_constraintTop_toBottomOf="@+id/txvNombreCreador5" />
+
+
+
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
