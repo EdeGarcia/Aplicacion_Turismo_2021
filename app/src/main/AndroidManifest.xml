@@ -9,7 +9,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.ProyectoPDDM2021">
-        <activity android:name=".PerfilLugarTuristaActivity"></activity>
+        <activity
+            android:name=".RegistrarLugarAdministrador"
+            android:exported="false" />
+        <activity
+            android:name=".LoginAdministrador"
+            android:exported="false" />
+        <activity android:name=".PerfilLugarTuristaActivity" />
         <activity android:name=".EditarPublicacionesAdministradorActivity" />
         <activity android:name=".InformacionAppActivity" />
         <activity android:name=".RegistrarLugarAdministradorActivity" />
