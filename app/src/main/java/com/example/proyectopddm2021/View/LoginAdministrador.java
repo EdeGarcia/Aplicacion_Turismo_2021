@@ -23,6 +23,7 @@ public class LoginAdministrador extends AppCompatActivity {
         edtUser = (EditText) findViewById(R.id.edtUsuarioLugTuristico);
         edtPassword = (EditText) findViewById(R.id.edtContrasenaLugTuristico);
         btnIngresar = (Button) findViewById(R.id.btnIngresarLugTuristico);
+        btnRegistrar = findViewById(R.id.btnRegistrarUsuarioLugTuristico);
 
         presenter = new LoginAdministradorPresenter();
 
@@ -32,10 +33,17 @@ public class LoginAdministrador extends AppCompatActivity {
             }
         });
 
+        btnRegistrar.setOnClickListener(v ->{
+            registerActivity();
+        });
     }
 
     private void homeActivity(){
         startActivity(new Intent(this, RegistrarTuristaActivity.class));
         finish();
+    }
+
+    private void registerActivity(){
+        startActivity(new Intent(this, RegistrarLugarAdministradorActivity.class));
     }
 }
