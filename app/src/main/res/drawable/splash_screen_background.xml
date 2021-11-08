@@ -2,13 +2,13 @@
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
     <item android:drawable="@color/white"/>
     <item
-        android:width="500dp"
-        android:height="500dp"
+        android:width="300dp"
+        android:height="250dp"
         android:right="50dp"
         android:left="50dp"
-        android:top="340dp"
-        android:bottom="340dp">
-        <bitmap android:src="@drawable/tour_app_logo"/>
+        android:top="300dp"
+        android:bottom="300dp">
+        <bitmap android:src="@drawable/sv_logo"/>
 
     </item>
 </layer-list>
