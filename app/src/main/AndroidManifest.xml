@@ -10,23 +10,23 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ProyectoPDDM2021">
         <activity
-            android:name=".RegistrarLugarAdministrador"
+            android:name=".View.RegistrarLugarAdministrador"
             android:exported="false" />
         <activity
-            android:name=".LoginAdministrador"
+            android:name=".View.MainActivity"
             android:exported="false" />
-        <activity android:name=".PerfilLugarTuristaActivity" />
-        <activity android:name=".EditarPublicacionesAdministradorActivity" />
-        <activity android:name=".InformacionAppActivity" />
-        <activity android:name=".RegistrarLugarAdministradorActivity" />
-        <activity android:name=".EditarGaleriaAdministradorActivity" />
-        <activity android:name=".EditarLugarAdministradorActivity" />
-        <activity android:name=".RegistrarTuristaActivity" />
-        <activity android:name=".LoginTuristaActivity" />
-        <activity android:name=".TipoUsuarioActivity" />
+        <activity android:name=".View.PerfilLugarTuristaActivity" />
+        <activity android:name=".View.EditarPublicacionesAdministradorActivity" />
+        <activity android:name=".View.InformacionAppActivity" />
+        <activity android:name=".View.RegistrarLugarAdministradorActivity" />
+        <activity android:name=".View.EditarGaleriaAdministradorActivity" />
+        <activity android:name=".View.EditarLugarAdministradorActivity" />
+        <activity android:name=".View.RegistrarTuristaActivity" />
+        <activity android:name=".View.LoginTuristaActivity" />
+        <activity android:name=".View.TipoUsuarioActivity" />
         <activity
-            android:name=".MainActivity"
-            android:theme="@style/SplashTheme">
+            android:name=".View.LoginAdministrador"
+       >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
