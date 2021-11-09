@@ -16,11 +16,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity
             android:name=".View.RegistrarLugarAdministrador"
             android:exported="false" />
         <activity
-            android:name=".View.MainActivity"
+            android:name=".View.LoginAdministrador"
             android:exported="false" />
         <activity android:name=".View.PerfilLugarTuristaActivity" />
         <activity android:name=".View.EditarPublicacionesAdministradorActivity" />
@@ -31,7 +32,7 @@
         <activity android:name=".View.RegistrarTuristaActivity" />
         <activity android:name=".View.LoginTuristaActivity" />
         <activity android:name=".View.TipoUsuarioActivity" />
-        <activity android:name=".View.LoginAdministrador">
+        <activity android:name=".View.MainActivity">
 
         </activity>
     </application>

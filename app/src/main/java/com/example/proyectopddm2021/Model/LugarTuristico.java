@@ -12,6 +12,7 @@ public class LugarTuristico implements Serializable {
     String telefono;
     String descripcion;
 
+
     public LugarTuristico() {
     }
 

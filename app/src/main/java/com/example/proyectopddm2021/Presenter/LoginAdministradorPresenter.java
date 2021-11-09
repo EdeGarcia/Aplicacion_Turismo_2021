@@ -6,6 +6,7 @@ import android.widget.Toast;
 
 import com.example.proyectopddm2021.Model.LoginAdministradorModel;
 
+
 public class LoginAdministradorPresenter {
     public LoginAdministradorPresenter() {
     }

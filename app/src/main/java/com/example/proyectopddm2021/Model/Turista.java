@@ -14,7 +14,6 @@ public class Turista {
     HashMap <String, String> lugaresFavoritos;
 
     public Turista() {
-
     }
 
     public String getId() {
