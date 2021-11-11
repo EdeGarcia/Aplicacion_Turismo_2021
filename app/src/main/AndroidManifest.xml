@@ -9,29 +9,46 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.ProyectoPDDM2021">
+
         <activity android:name=".View.SplashActivity"
-            android:theme="@style/SplashTheme">
+            android:theme="@style/SplashTheme"/>
+            <activity android:name=".View.TipoUsuarioActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
 
+
         <activity
             android:name=".View.RegistrarLugarAdministrador"
+            android:label="Registrar Lugar"
             android:exported="false" />
+
         <activity
             android:name=".View.LoginAdministrador"
+            android:label="Login"
             android:exported="false" />
+
         <activity android:name=".View.PerfilLugarTuristaActivity" />
+
         <activity android:name=".View.EditarPublicacionesAdministradorActivity" />
+
         <activity android:name=".View.InformacionAppActivity" />
-        <activity android:name=".View.RegistrarLugarAdministradorActivity" />
+
+        <activity android:name=".View.RegistrarLugarAdministradorActivity"
+            android:label="Registrar Lugar"/>
+
         <activity android:name=".View.EditarGaleriaAdministradorActivity" />
+
         <activity android:name=".View.EditarLugarAdministradorActivity" />
-        <activity android:name=".View.RegistrarTuristaActivity" />
-        <activity android:name=".View.LoginTuristaActivity" />
-        <activity android:name=".View.TipoUsuarioActivity" />
+
+        <activity android:name=".View.RegistrarTuristaActivity"
+            android:label="Registro Turista"/>
+
+        <activity android:name=".View.LoginTuristaActivity"
+            android:label="Login Turista"/>
+
         <activity android:name=".View.MainActivity">
 
         </activity>

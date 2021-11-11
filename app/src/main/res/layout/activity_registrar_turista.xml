@@ -155,6 +155,7 @@
         app:layout_constraintVertical_bias="0.75"
         android:text="@string/texto_registro_turista_7"
         android:textAllCaps="false"
+        android:onClick="PasarPerfilLugar"
         />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
