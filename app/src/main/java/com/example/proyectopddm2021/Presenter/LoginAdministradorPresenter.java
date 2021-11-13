@@ -2,6 +2,7 @@ package com.example.proyectopddm2021.Presenter;
 
 import android.content.Context;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.proyectopddm2021.Model.LoginAdministradorModel;
@@ -24,5 +25,9 @@ public class LoginAdministradorPresenter {
             }
         }
         return res;
+    }
+    public void llamarmodel(TextView tx){
+        //model.getCorreo(tx);
+
     }
 }

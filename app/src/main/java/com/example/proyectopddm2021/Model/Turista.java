@@ -1,17 +1,17 @@
 package com.example.proyectopddm2021.Model;
 
+import java.io.Serializable;
 import java.util.HashMap;
 
-public class Turista {
+public class Turista implements Serializable {
     String id;
     String nombres;
     String apellidos;
-    String direccion;
     String telefono;
-    String usuario;
+    String correo;
     String contrasenia;
-    String rol;
-    HashMap <String, String> lugaresFavoritos;
+    //String rol;
+    //HashMap <String, String> lugaresFavoritos;
 
     public Turista() {
     }
@@ -40,14 +40,6 @@ public class Turista {
         this.apellidos = apellidos;
     }
 
-    public String getDireccion() {
-        return direccion;
-    }
-
-    public void setDireccion(String direccion) {
-        this.direccion = direccion;
-    }
-
     public String getTelefono() {
         return telefono;
     }
@@ -56,12 +48,12 @@ public class Turista {
         this.telefono = telefono;
     }
 
-    public String getUsuario() {
-        return usuario;
+    public String getCorreo() {
+        return correo;
     }
 
-    public void setUsuario(String usuario) {
-        this.usuario = usuario;
+    public void setCorreo(String correo) {
+        this.correo = correo;
     }
 
     public String getContrasenia() {
@@ -72,7 +64,7 @@ public class Turista {
         this.contrasenia = contrasenia;
     }
 
-    public String getRol() {
+    /*public String getRol() {
         return rol;
     }
 
@@ -86,5 +78,5 @@ public class Turista {
 
     public void setLugaresFavoritos(HashMap<String, String> lugaresFavoritos) {
         this.lugaresFavoritos = lugaresFavoritos;
-    }
+    }*/
 }

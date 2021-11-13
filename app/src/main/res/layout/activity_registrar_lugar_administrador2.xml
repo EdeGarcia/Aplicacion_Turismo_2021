@@ -14,8 +14,8 @@
         android:layout_marginTop="10dp"
         android:text="Registrar Lugar Turistico"
         android:textAlignment="center"
-        android:textSize="20sp"
-        android:textColor="@color/black"
+        android:textSize="20dp"
+        android:textColor="@color/themeNightPrimaryColor"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -37,7 +37,8 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/edtServicios"
             android:layout_width="match_parent"
-            android:layout_height="94dp" />
+            android:layout_height="94dp"
+            android:textSize="18dp" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -56,7 +57,8 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/edtUbicacacionLugar"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:textSize="18dp" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -76,7 +78,8 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/edtCategoria"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:textSize="18dp" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -85,15 +88,14 @@
         android:id="@+id/btnRegistrarUsuarioLugTuristico"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:backgroundTint="@color/dark_blue"
+        android:backgroundTint="@color/themeNightPrimaryColor"
         android:text="Registrar"
+        android:textSize="18dp"
         android:textAllCaps="false"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/layoutServiciosLugTuristico"
-        app:layout_constraintVertical_bias="0.832" />
-
-
+        app:layout_constraintTop_toBottomOf="@+id/layoutCategoria"
+        app:layout_constraintVertical_bias="0.2" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

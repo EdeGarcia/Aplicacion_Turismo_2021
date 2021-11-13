@@ -1,26 +1,29 @@
 package com.example.proyectopddm2021.Model;
 
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
+
 import java.io.Serializable;
 
+
 public class LugarTuristico implements Serializable {
-    String id;
+    int id;
     String categoria;
     String nombre;
-    String usuario;
+    String correo;
     String contrasenia;
     String ubicacion;
     String telefono;
     String descripcion;
 
-
     public LugarTuristico() {
     }
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -40,12 +43,12 @@ public class LugarTuristico implements Serializable {
         this.nombre = nombre;
     }
 
-    public String getUsuario() {
-        return usuario;
+    public String getCorreo() {
+        return correo;
     }
 
-    public void setUsuario(String usuario) {
-        this.usuario = usuario;
+    public void setCorreo(String correo) {
+        this.correo = correo;
     }
 
     public String getContrasenia() {
@@ -79,4 +82,6 @@ public class LugarTuristico implements Serializable {
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
     }
+
+
 }

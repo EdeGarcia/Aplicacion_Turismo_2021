@@ -15,7 +15,7 @@
         android:layout_marginTop="30dp"
         android:clickable="true"
         android:onClick="PasarTurista"
-        android:src="@drawable/turista_icono"
+        android:src="@drawable/logo_turista_dark"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -28,7 +28,7 @@
         app:layout_constraintTop_toBottomOf="@+id/ivTurista"
         android:text="@string/turista_icon_name"
         android:textAlignment="center"
-        android:textColor="@color/dark_blue"
+        android:textColor="@color/themeNightPrimaryColor"
         android:textStyle="bold"
         android:textSize="30dp"/>
 
@@ -38,7 +38,7 @@
         android:layout_height="130dp"
         android:layout_marginTop="70dp"
         android:onClick="PasarAdministrador"
-        android:src="@drawable/lugar_turistico_icono"
+        android:src="@drawable/logo_lugar_dark"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -51,7 +51,7 @@
         app:layout_constraintTop_toBottomOf="@+id/ivLugar"
         android:text="@string/lugar_icon_name"
         android:textAlignment="center"
-        android:textColor="@color/dark_blue"
+        android:textColor="@color/themeNightPrimaryColor"
         android:textStyle="bold"
         android:textSize="30dp"/>
 

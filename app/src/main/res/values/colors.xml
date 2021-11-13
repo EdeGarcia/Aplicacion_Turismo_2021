@@ -8,4 +8,5 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="dark_blue">#180262</color>
+    <color name="themeNightPrimaryColor">#7C74EF</color>
 </resources>

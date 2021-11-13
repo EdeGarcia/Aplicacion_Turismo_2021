@@ -20,6 +20,7 @@
         android:text="@string/texto_registro_turista"
         android:textAlignment="center"
         android:textSize="20sp"
+        android:textColor="@color/themeNightPrimaryColor"
         />
 
     <com.google.android.material.textfield.TextInputLayout
@@ -38,7 +39,7 @@
             android:id="@+id/edtNombreTurista"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            />
+            android:textSize="18dp" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -58,7 +59,7 @@
             android:id="@+id/edtApellidoTurista"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            />
+            android:textSize="18dp"/>
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -78,12 +79,12 @@
             android:id="@+id/edtTelefonoTurista"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            />
+            android:textSize="18dp" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/layoutUsuarioTuristaRegistro"
+        android:id="@+id/layoutCorreoTuristaRegistro"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/texto_registro_turista_4"
@@ -95,10 +96,11 @@
         >
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/edtUsuarioTuristaRegistro"
+            android:id="@+id/edtCorreoTuristaRegistro"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            />
+            android:inputType="textEmailAddress"
+            android:textSize="18dp"/>
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -110,17 +112,16 @@
         android:hint="@string/texto_registro_turista_5"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="@id/layoutUsuarioTuristaRegistro"
+        app:layout_constraintTop_toTopOf="@id/layoutCorreoTuristaRegistro"
         app:layout_constraintVertical_bias="0.3"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        >
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/edtContrasenaTuristaRegistro"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textPassword"
-            />
+            android:textSize="18dp" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -141,21 +142,21 @@
             android:inputType="textPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            />
+            android:textSize="18dp" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
-        android:id="@+id/btnRegistrarUsuarioTurista_"
+        android:id="@+id/btnRegistrar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:backgroundTint="@color/themeNightPrimaryColor"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="@+id/layoutConfirmarContrasenaTuristaRegistro"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintVertical_bias="0.75"
         android:text="@string/texto_registro_turista_7"
         android:textAllCaps="false"
-        android:onClick="PasarPerfilLugar"
-        />
+        android:textSize="18dp"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
