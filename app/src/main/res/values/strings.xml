@@ -49,6 +49,12 @@
     <string name="Descripcion">Descripción</string>
     <string name="Telefono">Telefono</string>
     <string name="Servicios">Servicios</string>
+    <string name="principal">Principal</string>
+    <string name="MiPerfil">Mi Perfil</string>
+    <string name="favs">Favoritos</string>
+    <string name="info_app">Información de la App.</string>
+    <string name="quit">Cerrar Sesión</string>
+    <string name="share">Compartir</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 

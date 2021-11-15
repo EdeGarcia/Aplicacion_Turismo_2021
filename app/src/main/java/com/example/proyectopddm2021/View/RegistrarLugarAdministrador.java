@@ -84,7 +84,7 @@ public class RegistrarLugarAdministrador extends AppCompatActivity {
         finish();
     }
     public void PaginaPrincipal(){
-        startActivity(new Intent(RegistrarLugarAdministrador.this, PerfilLugarAdministradorActivity.class));
+        startActivity(new Intent(RegistrarLugarAdministrador.this, PrincipalAdministradorActivity.class));
         finish();
     }
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {

@@ -43,6 +43,8 @@
         app:layout_constraintTop_toBottomOf="@+id/txvV"
         />
 
+
+
     <ImageView
         android:id="@+id/imgCreador1"
         android:layout_width="70dp"
@@ -180,11 +182,7 @@
         android:textSize="16sp"
         app:layout_constraintStart_toEndOf="@+id/imgCreador4"
         app:layout_constraintTop_toBottomOf="@+id/txvNombreCreador4" />
-
-
-
-
-
+    
 
     <ImageView
         android:id="@+id/imgCreador5"
@@ -219,9 +217,6 @@
         android:textSize="16sp"
         app:layout_constraintStart_toEndOf="@+id/imgCreador5"
         app:layout_constraintTop_toBottomOf="@+id/txvNombreCreador5" />
-
-
-
 
 
 
