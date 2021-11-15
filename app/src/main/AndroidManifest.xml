@@ -9,8 +9,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.ProyectoPDDM2021">
-        <activity android:name=".View.PrincipalTuristaActivity"></activity>
-        <activity android:name=".View.PrincipalAdministradorActivity" />
+        <activity android:name=".View.PrincipalAdministradorActivity"></activity>
+        <activity
+            android:name=".View.PrincipalTuristaActivity"
+            android:exported="false"
+            android:label="SV Tour" />
         <activity
             android:name=".View.SplashActivity"
             android:theme="@style/SplashTheme">
@@ -20,10 +23,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".View.TipoUsuarioActivity"
+        <activity
+            android:name=".View.TipoUsuarioActivity"
             android:exported="false"
-            android:label="Usuario">
-        </activity>
+            android:label="Usuario"></activity>
         <activity
             android:name=".View.RegistrarLugarAdministrador"
             android:exported="false"
@@ -32,7 +35,10 @@
             android:name=".View.LoginAdministrador"
             android:exported="false"
             android:label="Login" />
-        <activity android:name=".View.PerfilLugarTuristaActivity" />
+        <activity
+            android:name=".View.PerfilLugarAdministradorActivity"
+            android:exported="false"
+            android:label="Perfil Lugar" />
         <activity android:name=".View.EditarPublicacionesAdministradorActivity" />
         <activity android:name=".View.InformacionAppActivity" />
         <activity

@@ -82,7 +82,7 @@ public class LoginAdministrador extends AppCompatActivity {
     }
 
     private void PrincipalActivity(){
-        startActivity(new Intent(this, PerfilLugarTuristaActivity.class));
+        startActivity(new Intent(this, PrincipalAdministradorActivity.class));
         finish();
     }
 

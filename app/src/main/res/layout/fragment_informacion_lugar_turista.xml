@@ -8,28 +8,6 @@
     android:layout_margin="16dp"
     android:orientation="vertical">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:duplicateParentState="false"
-        android:text="Nombre Lugar "
-        android:editable="false"
-        android:textColor="@color/black"
-        android:textSize="20sp">
-    </TextView>
-
-    <ImageView
-        android:id="@+id/Img1"
-        android:layout_width="match_parent"
-        android:layout_height="147dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginRight="16dp"
-        app:srcCompat="@mipmap/yapla">
-
-    </ImageView>
-
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content">

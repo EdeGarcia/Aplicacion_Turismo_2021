@@ -9,4 +9,6 @@
     <color name="white">#FFFFFFFF</color>
     <color name="dark_blue">#180262</color>
     <color name="themeNightPrimaryColor">#7C74EF</color>
+    <color name="lightBlue">#A3B2CC</color>
+
 </resources>

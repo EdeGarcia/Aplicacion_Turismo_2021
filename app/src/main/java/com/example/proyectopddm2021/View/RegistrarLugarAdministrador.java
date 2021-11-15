@@ -2,13 +2,11 @@ package com.example.proyectopddm2021.View;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.room.Room;
 
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -86,7 +84,7 @@ public class RegistrarLugarAdministrador extends AppCompatActivity {
         finish();
     }
     public void PaginaPrincipal(){
-        startActivity(new Intent(RegistrarLugarAdministrador.this, PerfilLugarTuristaActivity.class));
+        startActivity(new Intent(RegistrarLugarAdministrador.this, PerfilLugarAdministradorActivity.class));
         finish();
     }
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
