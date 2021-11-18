@@ -16,6 +16,11 @@ public class LugarTuristico implements Serializable {
     String telefono;
     String descripcion;
 
+    public LugarTuristico(String nombre, String descripcion) {
+        this.nombre = nombre;
+        this.descripcion = descripcion;
+    }
+
     public LugarTuristico() {
     }
 

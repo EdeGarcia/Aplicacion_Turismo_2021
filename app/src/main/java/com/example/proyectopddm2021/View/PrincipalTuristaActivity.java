@@ -9,6 +9,7 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.text.Layout;
 import android.view.MenuItem;
 
 import androidx.annotation.NonNull;
@@ -16,6 +17,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.TextView;
 
 import com.example.proyectopddm2021.R;
 import com.google.android.material.navigation.NavigationView;
@@ -26,11 +29,20 @@ public class PrincipalTuristaActivity extends AppCompatActivity {
     ActionBarDrawerToggle actionBarDrawerToggle;
     NavigationView navigationView;
 
+    TextView tvVolcanes, tvSitios, tvMuseos,  tvPueblos, tvLagos, tvPlayas;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_principal_turista);
         setUpToolbar();
+        tvVolcanes = findViewById(R.id.tvVolcanes);
+        tvSitios = findViewById(R.id.tvSitios);
+        tvMuseos = findViewById(R.id.tvMuseos);
+        tvPueblos = findViewById(R.id.tvMuseos);
+        tvLagos = findViewById(R.id.tvLagos);
+        tvPlayas = findViewById(R.id.tvPlayas);
+
         navigationView = (NavigationView) findViewById(R.id.navigation_menu);
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -92,6 +104,7 @@ public class PrincipalTuristaActivity extends AppCompatActivity {
                 }
                 return false;
             }
+
         });
     }
     public void setUpToolbar() {
@@ -102,4 +115,52 @@ public class PrincipalTuristaActivity extends AppCompatActivity {
         drawerLayout.addDrawerListener(actionBarDrawerToggle);
         actionBarDrawerToggle.syncState();
     }
+
+    public void CargarlistaCategoria1(View view){
+        String volcanes;
+        volcanes = tvVolcanes.getText().toString();
+        Intent intent = new Intent(PrincipalTuristaActivity.this, CategoriaTuristaActivity.class);
+        intent.putExtra("Categoria", volcanes);
+        startActivity(intent);
+    }
+
+    public void CargarlistaCategoria2(View view){
+        String sitios;
+        sitios = tvSitios.getText().toString();
+        Intent intent = new Intent(PrincipalTuristaActivity.this, CategoriaTuristaActivity.class);
+        intent.putExtra("Categoria", sitios);
+        startActivity(intent);
+    }
+    public void CargarlistaCategoria3(View view){
+        String museos;
+        museos = tvMuseos.getText().toString();
+        Intent intent = new Intent(PrincipalTuristaActivity.this, CategoriaTuristaActivity.class);
+        intent.putExtra("Categoria", museos);
+        startActivity(intent);
+    }
+
+    public void CargarlistaCategoria4(View view){
+        String pueblos;
+        pueblos = tvPueblos.getText().toString();
+        Intent intent = new Intent(PrincipalTuristaActivity.this, CategoriaTuristaActivity.class);
+        intent.putExtra("Categoria", pueblos);
+        startActivity(intent);
+    }
+
+    public void CargarlistaCategoria5(View view){
+        String lagos;
+        lagos = tvLagos.getText().toString();
+        Intent intent = new Intent(PrincipalTuristaActivity.this, CategoriaTuristaActivity.class);
+        intent.putExtra("Categoria", lagos);
+        startActivity(intent);
+    }
+
+    public void CargarlistaCategoria6(View view){
+        String playas;
+        playas = tvPlayas.getText().toString();
+        Intent intent = new Intent(PrincipalTuristaActivity.this, CategoriaTuristaActivity.class);
+        intent.putExtra("Categoria", playas);
+        startActivity(intent);
+    }
+
 }

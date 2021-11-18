@@ -75,12 +75,13 @@
         app:layout_constraintTop_toTopOf="@id/layoutUbicacionLugar"
         tools:layout_editor_absoluteY="151dp">
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/edtCategoria"
+        <Spinner
+            android:id="@+id/spinnerCat"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="18dp" />
-
+            android:layout_height="41dp"
+            android:hint="Categoria"
+            android:textAlignment="center"
+            app:layout_constraintTop_toTopOf="@id/layoutCategoria"/>
     </com.google.android.material.textfield.TextInputLayout>
 
 

@@ -69,5 +69,9 @@ public class PerfilLugarAdministradorActivity extends AppCompatActivity {
         });
         viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
     }
+
+
+
+
 }
 

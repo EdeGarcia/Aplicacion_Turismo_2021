@@ -3,8 +3,29 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/hogar/Desktop/Aplicacion_Turismo_2021/app/src/main/res/layout/activity_categoria_turista.xml" value="0.2171875" />
+        <entry key="..\:/Users/hogar/Desktop/Aplicacion_Turismo_2021/app/src/main/res/layout/activity_editar_lugar_administrador.xml" value="0.21384615384615385" />
+        <entry key="..\:/Users/hogar/Desktop/Aplicacion_Turismo_2021/app/src/main/res/layout/activity_editar_publicaciones_administrador.xml" value="0.2171875" />
+        <entry key="..\:/Users/hogar/Desktop/Aplicacion_Turismo_2021/app/src/main/res/layout/activity_galeria_administrador.xml" value="0.2171875" />
+        <entry key="..\:/Users/hogar/Desktop/Aplicacion_Turismo_2021/app/src/main/res/layout/activity_informacion_app.xml" value="0.2171875" />
         <entry key="..\:/Users/hogar/Desktop/Aplicacion_Turismo_2021/app/src/main/res/layout/activity_login_administrador.xml" value="0.2171875" />
+        <entry key="..\:/Users/hogar/Desktop/Aplicacion_Turismo_2021/app/src/main/res/layout/activity_main.xml" value="0.2171875" />
+        <entry key="..\:/Users/hogar/Desktop/Aplicacion_Turismo_2021/app/src/main/res/layout/activity_main2.xml" value="0.2171875" />
+        <entry key="..\:/Users/hogar/Desktop/Aplicacion_Turismo_2021/app/src/main/res/layout/activity_perfil_lugar_administrador.xml" value="0.2171875" />
+        <entry key="..\:/Users/hogar/Desktop/Aplicacion_Turismo_2021/app/src/main/res/layout/activity_presenter_principal.xml" value="0.2171875" />
+        <entry key="..\:/Users/hogar/Desktop/Aplicacion_Turismo_2021/app/src/main/res/layout/activity_principal_administrador.xml" value="0.2171875" />
+        <entry key="..\:/Users/hogar/Desktop/Aplicacion_Turismo_2021/app/src/main/res/layout/activity_principal_turista.xml" value="0.2171875" />
+        <entry key="..\:/Users/hogar/Desktop/Aplicacion_Turismo_2021/app/src/main/res/layout/activity_registrar_lugar_administrador.xml" value="0.2171875" />
         <entry key="..\:/Users/hogar/Desktop/Aplicacion_Turismo_2021/app/src/main/res/layout/activity_registrar_lugar_administrador2.xml" value="0.25" />
+        <entry key="..\:/Users/hogar/Desktop/Aplicacion_Turismo_2021/app/src/main/res/layout/activity_registrar_turista.xml" value="0.2171875" />
+        <entry key="..\:/Users/hogar/Desktop/Aplicacion_Turismo_2021/app/src/main/res/layout/activity_tipo_usuario.xml" value="0.2171875" />
+        <entry key="..\:/Users/hogar/Desktop/Aplicacion_Turismo_2021/app/src/main/res/layout/fragment_galeria_lugar_turista.xml" value="0.2171875" />
+        <entry key="..\:/Users/hogar/Desktop/Aplicacion_Turismo_2021/app/src/main/res/layout/fragment_informacion_lugar_turista.xml" value="0.2171875" />
+        <entry key="..\:/Users/hogar/Desktop/Aplicacion_Turismo_2021/app/src/main/res/layout/fragment_publicaciones_lugar_turista.xml" value="0.2171875" />
+        <entry key="..\:/Users/hogar/Desktop/Aplicacion_Turismo_2021/app/src/main/res/layout/header.xml" value="0.2171875" />
+        <entry key="..\:/Users/hogar/Desktop/Aplicacion_Turismo_2021/app/src/main/res/layout/itemcategoria.xml" value="0.25" />
+        <entry key="..\:/Users/hogar/Desktop/Aplicacion_Turismo_2021/app/src/main/res/layout/plantilla_menu.xml" value="0.2171875" />
+        <entry key="..\:/Users/hogar/Desktop/Aplicacion_Turismo_2021/app/src/main/res/menu/drawer_menu.xml" value="0.2171875" />
       </map>
     </option>
   </component>

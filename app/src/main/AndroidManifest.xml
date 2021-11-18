@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.proyectopddm2021">
+    package="com.example.proyectopddm2021" >
 
     <application
         android:allowBackup="true"
@@ -8,15 +8,21 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.ProyectoPDDM2021">
-        <activity android:name=".View.PrincipalAdministradorActivity"></activity>
+        android:theme="@style/Theme.ProyectoPDDM2021" >
+        <activity
+            android:name=".Presenter.PresenterPrincipal"
+            android:exported="false" />
+        <activity
+            android:name=".View.CategoriaTuristaActivity"
+            android:exported="false" />
+        <activity android:name=".View.PrincipalAdministradorActivity" />
         <activity
             android:name=".View.PrincipalTuristaActivity"
             android:exported="false"
             android:label="SV Tour" />
         <activity
             android:name=".View.SplashActivity"
-            android:theme="@style/SplashTheme">
+            android:theme="@style/SplashTheme" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -26,7 +32,7 @@
         <activity
             android:name=".View.TipoUsuarioActivity"
             android:exported="false"
-            android:label="Usuario"></activity>
+            android:label="Usuario" />
         <activity
             android:name=".View.RegistrarLugarAdministrador"
             android:exported="false"
