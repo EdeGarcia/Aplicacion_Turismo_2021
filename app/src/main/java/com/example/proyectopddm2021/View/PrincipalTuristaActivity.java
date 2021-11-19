@@ -20,6 +20,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
+import com.example.proyectopddm2021.DAO.LugarTuristicoDAO;
 import com.example.proyectopddm2021.R;
 import com.google.android.material.navigation.NavigationView;
 
@@ -28,8 +29,8 @@ public class PrincipalTuristaActivity extends AppCompatActivity {
     DrawerLayout drawerLayout;
     ActionBarDrawerToggle actionBarDrawerToggle;
     NavigationView navigationView;
-
     TextView tvVolcanes, tvSitios, tvMuseos,  tvPueblos, tvLagos, tvPlayas;
+    private LugarTuristicoDAO dao = new LugarTuristicoDAO();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,7 +52,7 @@ public class PrincipalTuristaActivity extends AppCompatActivity {
                 {
                     case  R.id.nav_home:
 
-                        Intent intent = new Intent(PrincipalTuristaActivity.this, LoginTuristaActivity.class);
+                        Intent intent = new Intent(PrincipalTuristaActivity.this, PrincipalTuristaActivity.class);
                         startActivity(intent);
                         break;
 
@@ -73,6 +74,7 @@ public class PrincipalTuristaActivity extends AppCompatActivity {
                         break;
 
                     case R.id.nav_drawer4:
+                        dao.signOut();
                         Intent intent4 = new Intent(PrincipalTuristaActivity.this, TipoUsuarioActivity.class);
                         startActivity(intent4);
                         break;

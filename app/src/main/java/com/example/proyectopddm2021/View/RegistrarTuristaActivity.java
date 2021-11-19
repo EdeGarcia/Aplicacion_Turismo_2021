@@ -83,17 +83,29 @@ public class RegistrarTuristaActivity extends AppCompatActivity {
         turista.setTelefono(edtTelefono.getText().toString());
         turista.setApellidos(edtApellidoTurista.getText().toString());
 
-        dao.add(turista).addOnSuccessListener(suc ->
+        dao.addAuth(turista).addOnSuccessListener(suc ->
         {
-            Toast.makeText(this, "Registro ingresado", Toast.LENGTH_SHORT).show();
+            dao.login(turista).addOnSuccessListener(su->{
+                dao.add(turista).addOnSuccessListener(s->{
+                    Toast.makeText(this, "Registro ingresado", Toast.LENGTH_SHORT).show();
+                    PaginaPrincipal();
+                });
+
+            });
+
         }).addOnFailureListener(er ->
         {
             Toast.makeText(this, "Hubo problemas al registrar", Toast.LENGTH_SHORT).show();
+            PaginaRegistrar();
         });
     }
 
     public void PaginaPrincipal(){
         startActivity(new Intent(RegistrarTuristaActivity.this, PrincipalTuristaActivity.class));
+        finish();
+    }
+    public void PaginaRegistrar() {
+        startActivity(new Intent(RegistrarTuristaActivity.this, RegistrarTuristaActivity.class));
         finish();
     }
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {

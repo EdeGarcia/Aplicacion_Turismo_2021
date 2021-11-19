@@ -22,26 +22,29 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-            android:id="@+id/imgPerfil"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:src="@drawable/icono_perfil_administrador"
-            app:layout_constraintTop_toBottomOf="@+id/tvTituloEditarAdmin"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            android:layout_marginTop="20dp"
-            tools:ignore="MissingConstraints" />
+        android:id="@+id/imgPerfil"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/icono_perfil_administrador"
+        app:layout_constraintTop_toBottomOf="@+id/tvTituloEditarAdmin"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginTop="20dp"
+        tools:ignore="MissingConstraints" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/btnAgregarImagenPerfilAdmin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="112dp"
         android:backgroundTint="@color/dark_blue"
         android:src="@android:drawable/ic_menu_edit"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.613"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         app:tint="@color/white"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="205dp"
-        tools:layout_editor_absoluteY="120dp" />
+        tools:ignore="MissingConstraints" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/layoutUsuarioAdmin"
@@ -51,13 +54,13 @@
         app:layout_constraintBottom_toBottomOf="@+id/layoutDescripcionAdmin"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnAgregarImagenPerfilAdmin"
-        app:layout_constraintVertical_bias="0.01"
+        app:layout_constraintTop_toBottomOf="@+id/imgPerfil"
+        app:layout_constraintVertical_bias="0.07"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         >
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/edtNombreLugar"
+            android:id="@+id/edtNombreEdit"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             />
@@ -76,7 +79,7 @@
         >
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/edtDescripcionLugar"
+            android:id="@+id/edtDescripcionEdit"
             android:layout_width="match_parent"
             android:layout_height="100dp"
             android:inputType="textMultiLine"
@@ -95,7 +98,7 @@
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/edtTelefonoLugar"
+            android:id="@+id/edtTelefonoEdit"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="number"
@@ -114,7 +117,7 @@
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/edtServiciosLugar"
+            android:id="@+id/edtServiciosEdit"
             android:layout_width="match_parent"
             android:layout_height="100dp"
             android:inputType="textMultiLine"
@@ -128,6 +131,12 @@
         android:orientation="horizontal"
         app:layout_constraintTop_toBottomOf="@+id/layoutServiciosAdmin"
         tools:ignore="MissingConstraints">
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="55dp"
+            android:src="@drawable/icono_localizacion"
+            android:layout_marginTop="5sp"
+            />
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/layoutUbicacionAdmin"
             android:layout_width="300dp"
@@ -139,7 +148,7 @@
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/edtUbicacionLugar"
+                android:id="@+id/edtUbicacionEdit"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textMultiLine"
@@ -147,15 +156,10 @@
 
         </com.google.android.material.textfield.TextInputLayout>
 
-        <ImageView
-            android:layout_width="50dp"
-            android:layout_height="55dp"
-            android:src="@drawable/icono_localizacion"
-            android:layout_marginTop="5sp"
-            />
+
     </LinearLayout>
     <Button
-        android:id="@+id/btnRegistrarUsuarioTurista"
+        android:id="@+id/btnGuardarLugar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:backgroundTint="@color/dark_blue"

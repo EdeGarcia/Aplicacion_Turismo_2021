@@ -17,7 +17,10 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
+import com.example.proyectopddm2021.DAO.LugarTuristicoDAO;
+import com.example.proyectopddm2021.Presenter.LugarTuristicoPresenter;
 import com.example.proyectopddm2021.R;
 import com.google.android.material.navigation.NavigationView;
 
@@ -26,14 +29,24 @@ public class PrincipalAdministradorActivity extends AppCompatActivity {
     DrawerLayout drawerLayout;
     ActionBarDrawerToggle actionBarDrawerToggle;
     NavigationView navigationView;
-
+    TextView txtNombre, txtCorreo;
     Button btnPublicaciones, btnPerfil;
+
+    private LugarTuristicoPresenter presenter = new LugarTuristicoPresenter();
+    private LugarTuristicoDAO dao = new LugarTuristicoDAO();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_principal_administrador);
+
+        txtNombre = (TextView) findViewById(R.id.txtNombreLugar);
+        txtCorreo = (TextView) findViewById(R.id.txtCorreoLugar);
         btnPerfil = (Button) findViewById(R.id.btnPefil);
         btnPublicaciones = (Button) findViewById(R.id.btnPublicaciones);
+
+        presenter.DatosPrincipal(txtNombre,txtCorreo);
+
         btnPerfil.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -50,7 +63,7 @@ public class PrincipalAdministradorActivity extends AppCompatActivity {
                 {
                     case  R.id.nav_home:
 
-                        Intent intent = new Intent(PrincipalAdministradorActivity.this, LoginAdministrador.class);
+                        Intent intent = new Intent(PrincipalAdministradorActivity.this, PrincipalAdministradorActivity.class);
                         startActivity(intent);
                         break;
 
@@ -67,12 +80,14 @@ public class PrincipalAdministradorActivity extends AppCompatActivity {
                         break;*/
 
                     case R.id.nav_drawer3:
+
                         Intent intent3 = new Intent(PrincipalAdministradorActivity.this, InformacionAppActivity.class);
                         startActivity(intent3);
                         break;
 
                     case R.id.nav_drawer4:
-                        Intent intent4 = new Intent(PrincipalAdministradorActivity.this, TipoUsuarioActivity.class);
+                        dao.signOut();
+                        Intent intent4 = new Intent(PrincipalAdministradorActivity.this, LoginAdministrador.class);
                         startActivity(intent4);
                         break;
 

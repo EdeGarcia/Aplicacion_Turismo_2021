@@ -19,8 +19,8 @@
     <string name="texto_registro_admin_3">Descripcion</string>
     <string name="texto_registro_admin_4">Teléfono</string>
     <string name="texto_registro_admin_5">Servicios</string>
-    <string name="texto_registro_admin_6">Coordenadas</string>
-    <string name="btn_registro_admin_1">Siguiente</string>
+    <string name="texto_registro_admin_6">Ubicacion</string>
+    <string name="btn_registro_admin_1">Guardar</string>
     <string name="turista_icon_name">Turista</string>
     <string name="lugar_icon_name">Lugar Turístico</string>
     <string name="txvRegistroAdmin">Registrar Lugar Turistico</string>
@@ -44,11 +44,12 @@
     <string name="info">Información</string>
     <string name="galeria">Galeria</string>
     <string name="publicaciones">Publicaciones</string>
-    <string name="Pais">País</string>
-    <string name="Locacalizacion">Localización</string>
+    <string name="nombreLugar">Lugar</string>
+    <string name="ubicacion">Ubicación</string>
     <string name="Descripcion">Descripción</string>
     <string name="Telefono">Telefono</string>
     <string name="Servicios">Servicios</string>
+    <string name="Categoria">Categoria</string>
     <string name="principal">Principal</string>
     <string name="MiPerfil">Mi Perfil</string>
     <string name="favs">Favoritos</string>

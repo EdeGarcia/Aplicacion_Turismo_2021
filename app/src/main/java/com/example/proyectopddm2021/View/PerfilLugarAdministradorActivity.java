@@ -7,7 +7,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 
-import com.example.proyectopddm2021.Model.PagerController;
+import com.example.proyectopddm2021.Model.PagerControllerAdmin;
+import com.example.proyectopddm2021.Presenter.LugarTuristicoPresenter;
 import com.example.proyectopddm2021.R;
 import com.google.android.material.tabs.TabItem;
 import com.google.android.material.tabs.TabLayout;
@@ -17,8 +18,9 @@ public class PerfilLugarAdministradorActivity extends AppCompatActivity {
     TabLayout tabLayout;
     ViewPager viewPager;
     TabItem tab1, tab2, tab3;
-    PagerController pagerAdapter;
+    PagerControllerAdmin pagerAdapter;
     ImageView portada;
+    private LugarTuristicoPresenter presenter = new LugarTuristicoPresenter();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,7 +35,8 @@ public class PerfilLugarAdministradorActivity extends AppCompatActivity {
         tab2 = findViewById(R.id.TabGaleriaTurista);
         tab3 = findViewById(R.id.TabPublicacionesTurista);
 
-        pagerAdapter = new PagerController(getSupportFragmentManager(),tabLayout.getTabCount());
+
+        pagerAdapter = new PagerControllerAdmin(getSupportFragmentManager(),tabLayout.getTabCount());
         viewPager.setAdapter(pagerAdapter);
 
 

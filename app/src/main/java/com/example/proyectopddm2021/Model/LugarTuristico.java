@@ -7,7 +7,7 @@ import java.io.Serializable;
 
 
 public class LugarTuristico implements Serializable {
-    int id;
+    String id;
     String categoria;
     String nombre;
     String correo;
@@ -15,6 +15,7 @@ public class LugarTuristico implements Serializable {
     String ubicacion;
     String telefono;
     String descripcion;
+    String servicio;
 
     public LugarTuristico(String nombre, String descripcion) {
         this.nombre = nombre;
@@ -24,11 +25,11 @@ public class LugarTuristico implements Serializable {
     public LugarTuristico() {
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -88,5 +89,11 @@ public class LugarTuristico implements Serializable {
         this.descripcion = descripcion;
     }
 
+    public String getServicio() {
+        return servicio;
+    }
 
+    public void setServicio(String servicio) {
+        this.servicio = servicio;
+    }
 }

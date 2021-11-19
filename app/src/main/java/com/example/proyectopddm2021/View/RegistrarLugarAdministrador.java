@@ -74,9 +74,7 @@ public class RegistrarLugarAdministrador extends AppCompatActivity {
     }
 
     private void send(Context context){
-        idContador++;
         LugarTuristico lugar = new LugarTuristico();
-        lugar.setId(idContador);
         lugar.setCorreo(correo);
         lugar.setNombre(name);
         lugar.setContrasenia(password);
@@ -84,13 +82,18 @@ public class RegistrarLugarAdministrador extends AppCompatActivity {
         lugar.setDescripcion(description);
         lugar.setUbicacion(edtUbicacion.getText().toString());
         lugar.setCategoria(spinnerCat.getSelectedItem().toString());
+        lugar.setServicio(edtServicios.getText().toString());
 
-        //txtId.setText(dao.getPushID());
-        //dao.addNameCollection(user);
-        dao.add(lugar).addOnSuccessListener(suc ->
+        dao.addAuth(lugar).addOnSuccessListener(suc ->
         {
-            Toast.makeText(this, "Registro ingresado", Toast.LENGTH_SHORT).show();
-            PaginaPrincipal();
+            dao.login(lugar).addOnSuccessListener(su->{
+                dao.add(lugar).addOnSuccessListener(s->{
+                    Toast.makeText(this, "Registro ingresado", Toast.LENGTH_SHORT).show();
+                    PaginaPrincipal();
+                });
+
+            });
+
         }).addOnFailureListener(er ->
         {
             Toast.makeText(this, "" + er.getMessage(), Toast.LENGTH_SHORT).show();

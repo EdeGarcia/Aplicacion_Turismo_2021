@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Fragments.InformacionLugarTuristaFragment"
+    tools:context=".Fragments.InformacionLugarAdminFragment"
     android:layout_margin="16dp"
     android:orientation="vertical">
 
@@ -17,54 +17,42 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:layout_marginTop="16dp">
-
-
-            <TextView
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/Pais"
-                android:textSize="20sp"
-                android:textColor="@color/black"
-                android:layout_marginTop="20dp">
+                android:orientation="horizontal">
+                <TextView
+                    android:id="@+id/txtLugar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/nombreLugar"
+                    android:textSize="20sp"
+                    android:textColor="@color/black"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginRight="10dp">
 
+                </TextView>
+                <Button
+                    android:id="@+id/btnEditar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Editar"
+                    android:layout_marginTop="20dp"/>
 
-            </TextView>
+            </LinearLayout>
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text=""
-                android:textSize="20sp"
-                android:textColor="@color/black">
-            </TextView>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/Locacalizacion"
+                android:text="@string/ubicacion"
                 android:textSize="20sp"
                 android:textColor="@color/black"
                 android:layout_marginTop="8dp">
             </TextView>
 
             <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text=""
-                android:textSize="20sp"
-                android:textColor="@color/black">
-            </TextView>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/Descripcion"
-                android:textSize="20sp"
-                android:textColor="@color/black"
-                android:layout_marginTop="8dp">
-            </TextView>
-
-            <TextView
+                android:id="@+id/txtUbicacion"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text=""
@@ -82,6 +70,25 @@
             </TextView>
 
             <TextView
+                android:id="@+id/txtTelefono"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textSize="20sp"
+                android:textColor="@color/black">
+            </TextView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/Descripcion"
+                android:textSize="20sp"
+                android:textColor="@color/black"
+                android:layout_marginTop="8dp">
+            </TextView>
+
+            <TextView
+                android:id="@+id/txtDescripcion"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text=""
@@ -100,6 +107,7 @@
             </TextView>
 
             <TextView
+                android:id="@+id/txtServicios"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text=""

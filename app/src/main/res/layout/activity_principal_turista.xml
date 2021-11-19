@@ -3,13 +3,11 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:background="@drawable/background_principal"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/drawerLayout"
     android:fitsSystemWindows="true"
     android:minWidth="19dp"
-    android:layout_margin="16dp"
     tools:context=".View.PrincipalTuristaActivity"
     android:orientation="vertical">
 
@@ -20,9 +18,9 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="#F7FFFFFF"
+            android:layout_height="match_parent"
             android:orientation="vertical">
+
 
             <androidx.appcompat.widget.Toolbar
                 android:id="@+id/toolbar"
@@ -40,6 +38,7 @@
                 android:layout_height="140dp"
                 android:orientation="horizontal"
                 android:paddingLeft="20dp"
+                android:background="@drawable/background_header"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent">
@@ -47,6 +46,7 @@
                 <ImageView
                     android:layout_width="120dp"
                     android:layout_height="95dp"
+                    android:layout_marginTop="20dp"
                     android:src="@drawable/logo_svtour_darkmode" />
                 <TextView
                     android:layout_width="match_parent"
@@ -91,12 +91,7 @@
                                 android:textAlignment="center"
                                 android:text="Volcanes"
                                 android:textSize="18dp"/>
-                            <TextView
-                                android:layout_width="100dp"
-                                android:layout_height="wrap_content"
-                                android:textAlignment="center"
-                                android:text="Montañas"
-                                android:textSize="18dp"/>
+
                         </LinearLayout>
                         <LinearLayout
                             android:layout_width="100dp"
