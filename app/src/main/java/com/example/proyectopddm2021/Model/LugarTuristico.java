@@ -1,5 +1,7 @@
 package com.example.proyectopddm2021.Model;
 
+import android.content.Context;
+
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
@@ -17,7 +19,7 @@ public class LugarTuristico implements Serializable {
     String descripcion;
     String servicio;
     String tipoUsuario;
-
+    Context contextA;
     public LugarTuristico(String id,String nombre, String descripcion) {
         this.id = id;
         this.nombre = nombre;
@@ -105,5 +107,13 @@ public class LugarTuristico implements Serializable {
 
     public void setTipoUsuario(String tipoUsuario) {
         this.tipoUsuario = tipoUsuario;
+    }
+
+    public Context getContextA() {
+        return contextA;
+    }
+
+    public void setContextA(Context context) {
+        this.contextA = context;
     }
 }

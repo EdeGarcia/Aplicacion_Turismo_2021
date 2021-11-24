@@ -6,35 +6,89 @@
     android:layout_height="match_parent"
     tools:context=".Fragments.PublicacionesLugarAdminFragment"
     android:layout_margin="16dp"
-    android:orientation="vertical">
-
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    android:orientation="vertical"
+    android:layout_gravity="center">
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Nombre del Lugar"
-        android:textSize="30sp"
-        android:textColor="@color/black"/>
+        android:orientation="vertical">
+        <LinearLayout
+            android:id="@+id/layoutContImagenesPost"
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:orientation="horizontal"
+            android:background="@color/lightBlue">
+            <ImageView
+                android:id="@+id/imgCargadaPost"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:src="@drawable/icono_subir_imagen"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="10dp" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/layoutDescripcionPost"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Escribe algo..."
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edtDescripcionPublicacion"
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:inputType="textMultiLine"
+                    android:textSize="18dp" />
 
-        <ImageView
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:src="@mipmap/coffee">
-        </ImageView>
+            </com.google.android.material.textfield.TextInputLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingLeft="40dp">
+                <TextView
+                    android:id="@+id/tvMensaje"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Mensaje"/>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <ImageView
+                        android:id="@+id/imgSubir"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:src="@drawable/subir_imagen_logo"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginRight="10dp"/>
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Publicar"/>
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Cancelar"
+                        android:backgroundTint="@color/cancelarColor"
+                        android:layout_marginLeft="10dp"/>
 
-        <TextView
-            android:layout_width="280dp"
-            android:layout_height="match_parent"
-            android:text="@string/publicaciones"
-            android:textColor="@color/black"
-            android:textSize="20sp" />
+                </LinearLayout>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+            </LinearLayout>
+
+        </LinearLayout>
     </LinearLayout>
-
-
-
 
 </LinearLayout>

@@ -11,4 +11,7 @@
     <color name="themeNightPrimaryColor">#7C74EF</color>
     <color name="lightBlue">#A3B2CC</color>
 
+    <color name="cancelarColor">#7A808C</color>
+    <color name="publicacionColor">#E7E9EC</color>
+
 </resources>

@@ -1,19 +1,35 @@
 package com.example.proyectopddm2021.Fragments;
 
+import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.media.Image;
+import android.net.Uri;
 import android.os.Bundle;
 
+import androidx.activity.result.ActivityResult;
+import androidx.activity.result.ActivityResultCallback;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.fragment.app.Fragment;
 
+import android.os.ParcelFileDescriptor;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.proyectopddm2021.Presenter.LugarTuristicoPresenter;
 import com.example.proyectopddm2021.R;
 import com.example.proyectopddm2021.View.EditarLugarAdministradorActivity;
+
+import java.io.FileDescriptor;
+import java.io.IOException;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -23,6 +39,7 @@ import com.example.proyectopddm2021.View.EditarLugarAdministradorActivity;
 public class InformacionLugarAdminFragment extends Fragment {
     TextView txtNombreLugarT, txtDescripcion, txtTelefono, txtUbicacion, txtServicios;
     Button btnEditar;
+
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -64,6 +81,8 @@ public class InformacionLugarAdminFragment extends Fragment {
         }
     }
 
+
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -87,4 +106,5 @@ public class InformacionLugarAdminFragment extends Fragment {
         });
         return  f;
     }
+
 }
