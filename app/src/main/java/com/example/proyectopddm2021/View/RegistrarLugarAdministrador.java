@@ -17,6 +17,7 @@ import android.widget.Toast;
 import com.example.proyectopddm2021.DAO.LugarTuristicoDAO;
 import com.example.proyectopddm2021.Model.Categoria;
 import com.example.proyectopddm2021.Model.LugarTuristico;
+import com.example.proyectopddm2021.Presenter.RegistrarUsuariosPresenter;
 import com.example.proyectopddm2021.R;
 import com.example.proyectopddm2021.Utils.Utils;
 import com.google.firebase.database.DataSnapshot;
@@ -34,11 +35,9 @@ public class RegistrarLugarAdministrador extends AppCompatActivity {
     private Spinner spinnerCat;
     private Button btnRegistrar_;
     private String correo, name, password, telephone, description;
-    private LugarTuristicoDAO dao = new LugarTuristicoDAO();
-    private int idContador;
-    private TextView txtId;
-
+    private RegistrarUsuariosPresenter presenter;
     DatabaseReference mDataBase;
+    private LugarTuristicoDAO dao = new LugarTuristicoDAO();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -141,5 +140,7 @@ public class RegistrarLugarAdministrador extends AppCompatActivity {
             }
         });
     }
+
+
 
 }

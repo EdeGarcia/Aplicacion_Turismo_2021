@@ -38,6 +38,7 @@ public class LugarTuristicoDAO {
     public Task<Void> add(LugarTuristico lugarTuristico)
     {
         lugarTuristico.setId(IdCurrentUser());
+        lugarTuristico.setTipoUsuario("Administrador");
         return databaseReference.child(IdCurrentUser()).setValue(lugarTuristico);
 
     }

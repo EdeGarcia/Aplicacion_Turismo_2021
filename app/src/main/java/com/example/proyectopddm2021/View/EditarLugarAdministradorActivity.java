@@ -2,10 +2,12 @@ package com.example.proyectopddm2021.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.example.proyectopddm2021.DAO.LugarTuristicoDAO;
@@ -20,9 +22,10 @@ public class EditarLugarAdministradorActivity extends AppCompatActivity {
 
     Button btnGuardar;
     EditText edtNombre, edtUbicacion, edtDescripcion, edtTelefono, edtServicios;
+    private Spinner spinner;
     private LugarTuristico lugar = new LugarTuristico();
     private LugarTuristicoDAO dao = new LugarTuristicoDAO();
-    private LugarTuristicoPresenter presenter = new LugarTuristicoPresenter();
+    private LugarTuristicoPresenter presenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,7 +37,10 @@ public class EditarLugarAdministradorActivity extends AppCompatActivity {
         edtServicios = findViewById(R.id.edtServiciosEdit);
         edtTelefono = findViewById(R.id.edtTelefonoEdit);
         edtUbicacion = findViewById(R.id.edtUbicacionEdit);
+        spinner = (Spinner) findViewById(R.id.spinnerCat);
         btnGuardar = findViewById(R.id.btnGuardarLugar);
+
+        presenter = new LugarTuristicoPresenter(EditarLugarAdministradorActivity.this);
 
         presenter.DatosEditar(edtNombre, edtTelefono, edtDescripcion,edtUbicacion, edtServicios);
 
@@ -43,21 +49,11 @@ public class EditarLugarAdministradorActivity extends AppCompatActivity {
         lugar.setServicio(edtServicios.getText().toString());
         lugar.setTelefono(edtTelefono.getText().toString());
         lugar.setUbicacion(edtUbicacion.getText().toString());
-
-
-        Map<String, Object> map = presenter.MapeoUpdate(lugar);
-
+        
         btnGuardar.setOnClickListener(v->{
-            if(Utils.validateEditText(edtNombre) && Utils.validateEditText(edtDescripcion) && Utils.validateEditText(edtTelefono) && Utils.validateEditText(edtServicios) && Utils.validateEditText(edtUbicacion)) {
-                dao.Update(map).addOnSuccessListener(suc->{
-                    Toast.makeText(this, "Se guardaron los cambios correctamente", Toast.LENGTH_SHORT).show();
-                    startActivity(new Intent(this, PerfilLugarAdministradorActivity.class));
-                }).addOnFailureListener(f->{
-                    Toast.makeText(this, "No se pudo actualizar", Toast.LENGTH_SHORT).show();
-                });
-            }
-
+            presenter.Editar(lugar, edtNombre,edtDescripcion, edtTelefono,edtServicios, edtUbicacion);
         });
 
     }
+
 }

@@ -16,8 +16,10 @@ public class LugarTuristico implements Serializable {
     String telefono;
     String descripcion;
     String servicio;
+    String tipoUsuario;
 
-    public LugarTuristico(String nombre, String descripcion) {
+    public LugarTuristico(String id,String nombre, String descripcion) {
+        this.id = id;
         this.nombre = nombre;
         this.descripcion = descripcion;
     }
@@ -95,5 +97,13 @@ public class LugarTuristico implements Serializable {
 
     public void setServicio(String servicio) {
         this.servicio = servicio;
+    }
+
+    public String getTipoUsuario() {
+        return tipoUsuario;
+    }
+
+    public void setTipoUsuario(String tipoUsuario) {
+        this.tipoUsuario = tipoUsuario;
     }
 }

@@ -1,11 +1,18 @@
 package com.example.proyectopddm2021.Presenter;
 
+import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 
+import com.example.proyectopddm2021.DAO.LugarTuristicoDAO;
 import com.example.proyectopddm2021.Model.LugarTuristico;
+import com.example.proyectopddm2021.Utils.Utils;
+import com.example.proyectopddm2021.View.PerfilLugarAdministradorActivity;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -18,15 +25,20 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class LugarTuristicoPresenter {
+    Context context;
     private DatabaseReference databaseReference;
+    private LugarTuristicoDAO daoLugar = new LugarTuristicoDAO();
     FirebaseDatabase db =FirebaseDatabase.getInstance();
     FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
     LugarTuristico lugarTuristicoData = new LugarTuristico();
 
     String _nombre, _Uid, _telefono, _ubicacion,_descripcion, _servicios, _correo;
 
-    public LugarTuristicoPresenter() {
+    public LugarTuristicoPresenter(Activity context) {
+        this.context = context;
+    }
 
+    public LugarTuristicoPresenter() {
     }
 
     public Map<String, Object> MapeoUpdate(LugarTuristico lugarTuristico){
@@ -38,6 +50,7 @@ public class LugarTuristicoPresenter {
         lugarMap.put("servicio", lugarTuristico.getServicio());
         return lugarMap;
     }
+
     public void DatosPerfil(TextView txtNombre, TextView txtTelefono, TextView txtDescripcion, TextView txtUbicacion, TextView txtServicios){
 
         databaseReference = db.getReference("LugarTuristico").child(user.getUid());
@@ -110,7 +123,6 @@ public class LugarTuristicoPresenter {
         });
     }
 
-
     public void DatosPrincipal(TextView txtNombre, TextView txtCorreo){
 
         databaseReference = db.getReference("LugarTuristico").child(user.getUid());
@@ -137,5 +149,18 @@ public class LugarTuristicoPresenter {
                 System.out.println("The read failed: " + error.getCode());
             }
         });
+    }
+
+    public void Editar(LugarTuristico lugarTuristico,EditText edtNombre, EditText edtDescripcion, EditText edtTelefono, EditText edtServicios, EditText edtUbicacion){
+        if(Utils.validateEditText(edtNombre) && Utils.validateEditText(edtDescripcion) && Utils.validateEditText(edtTelefono) && Utils.validateEditText(edtServicios) && Utils.validateEditText(edtUbicacion)) {
+            if (!Utils.validateTelefonoLength(edtTelefono)) {
+                daoLugar.Update(MapeoUpdate(lugarTuristico)).addOnSuccessListener(suc -> {
+                    Toast.makeText(context, "Se guardaron los cambios correctamente", Toast.LENGTH_SHORT).show();
+                    context.startActivity(new Intent(context, PerfilLugarAdministradorActivity.class));
+                }).addOnFailureListener(f -> {
+                    Toast.makeText(context, "No se pudo actualizar", Toast.LENGTH_SHORT).show();
+                });
+            }
+        }
     }
 }

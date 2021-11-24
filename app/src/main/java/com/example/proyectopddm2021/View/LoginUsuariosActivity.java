@@ -14,22 +14,21 @@ import android.widget.Toast;
 
 import com.example.proyectopddm2021.DAO.LugarTuristicoDAO;
 import com.example.proyectopddm2021.Model.LugarTuristico;
-import com.example.proyectopddm2021.Presenter.LoginAdministradorPresenter;
+import com.example.proyectopddm2021.Presenter.LoginUsuariosPresenter;
 import com.example.proyectopddm2021.R;
 import com.example.proyectopddm2021.Utils.Utils;
 
-public class LoginAdministrador extends AppCompatActivity {
+public class LoginUsuariosActivity extends AppCompatActivity {
 
-    private LugarTuristicoDAO dao = new LugarTuristicoDAO();
     EditText edtCorreo, edtPassword;
     Button btnIngresar, btnRegistrar;
-    LoginAdministradorPresenter presenter;
+    LoginUsuariosPresenter presenter;
     TextView tx;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login_administrador);
+        setContentView(R.layout.activity_login_usuarios);
 
         if(getSupportActionBar() != null){
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -41,52 +40,34 @@ public class LoginAdministrador extends AppCompatActivity {
         btnRegistrar = findViewById(R.id.btnRegistrarUsuarioLugTuristico);
 
         tx = findViewById(R.id.txt);
-        //presenter = new LoginAdministradorPresenter();
-
+        presenter = new LoginUsuariosPresenter(LoginUsuariosActivity.this);
 
         btnIngresar.setOnClickListener(v -> {
-            if(Utils.validateEditText(edtCorreo)){
-                if(!Utils.validarCorreo(edtCorreo.getText().toString())){
-                    edtCorreo.setError("Correo no válido");
-                }else{
-                    if(Utils.validateEditText(edtPassword)){
-                        send(getApplicationContext());
-                    }
-                }
-            }
+            String tipo = getIntent().getStringExtra("tipoUsuario");
+            presenter.send(tipo, edtCorreo, edtPassword);
+
         });
 
         btnRegistrar.setOnClickListener(v ->{
-            registerActivity();
+            String tipo = getIntent().getStringExtra("tipoUsuario");
+            tipoRegistro(tipo);
         });
+
     }
 
-    private void send(Context context){
-        if(!Utils.validarCorreo(edtCorreo.getText().toString())){
-            edtCorreo.setError("Correo no válido");
-        }else{
-            LugarTuristico lugar = new LugarTuristico();
-            lugar.setCorreo(edtCorreo.getText().toString());
-            lugar.setContrasenia(edtPassword.getText().toString());
-
-            dao.login(lugar).addOnSuccessListener(suc ->
-            {
-                Toast.makeText(this, "¡Bienvenido a SV Tour!", Toast.LENGTH_SHORT).show();
-                PrincipalActivity();
-            }).addOnFailureListener(er ->
-            {
-                Toast.makeText(this, "Credenciales incorrectas", Toast.LENGTH_SHORT).show();
-            });
+    public void tipoRegistro(String tipo){
+        if(tipo.equals("1")){
+            registerActivityTurista();
+        }else if(tipo.equals("2")){
+            registerActivityLugar();
         }
-
     }
 
-    private void PrincipalActivity(){
-        startActivity(new Intent(this, PrincipalAdministradorActivity.class));
+    private void registerActivityTurista(){
+        startActivity(new Intent(this, RegistrarTuristaActivity.class));
         finish();
     }
-
-    private void registerActivity(){
+    private void registerActivityLugar(){
         startActivity(new Intent(this, RegistrarLugarAdministradorActivity.class));
         finish();
     }

@@ -10,12 +10,14 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.proyectopddm2021.Presenter.RegistrarUsuariosPresenter;
 import com.example.proyectopddm2021.R;
 import com.example.proyectopddm2021.Utils.Utils;
 
 public class RegistrarLugarAdministradorActivity extends AppCompatActivity {
     private EditText edtCorreo, edtNombre, edtContrasenia_one, edtContrasenia_two, edtTelefono, edtDescripcion;
-    Button btnSiguiente_;
+    private Button btnSiguiente_;
+    private RegistrarUsuariosPresenter presenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,6 +63,8 @@ public class RegistrarLugarAdministradorActivity extends AppCompatActivity {
                 }
             }
         });
+
+
     }
 
     private void nextScreenRegister(){

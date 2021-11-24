@@ -23,11 +23,15 @@ public class TipoUsuarioActivity extends AppCompatActivity {
 
     }
     public void PasarTurista(View view) {
-        startActivity(new Intent(TipoUsuarioActivity.this, LoginTuristaActivity.class));
+        Intent intent = new Intent(TipoUsuarioActivity.this, LoginUsuariosActivity.class);
+        intent.putExtra("tipoUsuario","1");
+        startActivity(intent);
     }
 
     public void PasarAdministrador(View view) {
-        startActivity(new Intent(TipoUsuarioActivity.this, LoginAdministrador.class));
+        Intent intent = new Intent(TipoUsuarioActivity.this, LoginUsuariosActivity.class);
+        intent.putExtra("tipoUsuario","2");
+        startActivity(intent);
     }
 
 }
