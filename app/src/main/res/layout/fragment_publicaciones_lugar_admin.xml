@@ -47,11 +47,21 @@
                     android:textSize="18dp" />
 
             </com.google.android.material.textfield.TextInputLayout>
+
+            <ProgressBar
+                android:layout_marginTop="30dp"
+                android:id="@+id/pbImage"
+                style="?android:attr/progressBarStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
             <LinearLayout
+                android:layout_marginTop="40dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:paddingLeft="40dp">
+
                 <TextView
                     android:id="@+id/tvMensaje"
                     android:layout_width="match_parent"
@@ -69,26 +79,34 @@
                         android:layout_marginTop="5dp"
                         android:layout_marginRight="10dp"/>
                     <Button
+                        android:id="@+id/btnPublicar"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Publicar"/>
+
                     <Button
+                        android:id="@+id/btnCancelar"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Cancelar"
+                        android:layout_marginLeft="10dp"
                         android:backgroundTint="@color/cancelarColor"
-                        android:layout_marginLeft="10dp"/>
+                        android:text="Cancelar" />
 
                 </LinearLayout>
             </LinearLayout>
             <LinearLayout
+
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
             </LinearLayout>
 
+
+
         </LinearLayout>
     </LinearLayout>
+
+
 
 </LinearLayout>

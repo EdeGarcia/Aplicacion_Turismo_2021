@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -27,6 +28,10 @@ public class PrincipalAdministradorActivity extends AppCompatActivity {
     TextView txtNombre, txtCorreo;
     Button btnPublicaciones, btnPerfil;
 
+    //Context
+    public static Context contextOfApplication;
+
+
     private LugarTuristicoPresenter presenter = new LugarTuristicoPresenter();
     private LugarTuristicoDAO dao = new LugarTuristicoDAO();
 
@@ -34,6 +39,11 @@ public class PrincipalAdministradorActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_principal_administrador);
+
+//
+        contextOfApplication = getApplicationContext();
+
+//
 
         txtNombre = (TextView) findViewById(R.id.txtNombreLugar);
         txtCorreo = (TextView) findViewById(R.id.txtCorreoLugar);
@@ -125,6 +135,11 @@ public class PrincipalAdministradorActivity extends AppCompatActivity {
 
     public void IrAPerfil(){
         startActivity(new Intent(this, PerfilLugarAdministradorActivity.class));
+    }
+
+    public static Context getContextOfApplication()
+    {
+        return contextOfApplication;
     }
 }
 

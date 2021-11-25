@@ -2,6 +2,7 @@ package com.example.proyectopddm2021.Fragments;
 
 import android.Manifest;
 import android.app.Activity;
+import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -17,6 +18,8 @@ import androidx.activity.result.ActivityResultCallback;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 
@@ -25,30 +28,69 @@ import android.provider.MediaStore;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.MimeTypeMap;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.proyectopddm2021.DAO.LugarTuristicoDAO;
+import com.example.proyectopddm2021.DAO.PublicacionDAO;
 import com.example.proyectopddm2021.Model.LugarTuristico;
+import com.example.proyectopddm2021.Model.Publicacion;
+import com.example.proyectopddm2021.Model.Turista;
 import com.example.proyectopddm2021.R;
+import com.example.proyectopddm2021.View.PrincipalAdministradorActivity;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.OnProgressListener;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
 
 import java.io.FileDescriptor;
 import java.io.IOException;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+
+import static android.app.Activity.RESULT_OK;
 
 /**
  * A simple {@link Fragment} subclass.
  * Use the {@link PublicacionesLugarAdminFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
+@RequiresApi(api = Build.VERSION_CODES.O)
 public class PublicacionesLugarAdminFragment extends Fragment {
     LinearLayout linearLayout;
     ImageView imgSubir, imgCargada;
     Uri selectedImage;
     Bitmap img;
+//    Botones
+    Button btnPublicar, btnCancelar;
     TextView txtMensaje;
+    ProgressBar pbImage;
     Context context;
-    LugarTuristico lugar = new LugarTuristico();;
+    EditText edtTextoPublicacion;
+    LugarTuristicoDAO lugar = new LugarTuristicoDAO();
+
+
+    //Referencia para subir imagen a Storage
+    private StorageReference storageReference = FirebaseStorage.getInstance().getReference();
+
+    //
+    private Uri imageUri;
+    Activity activity;
+    DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
+    LocalDateTime now = LocalDateTime.now();
+    Context applicationContext = PrincipalAdministradorActivity.getContextOfApplication();
+
+
     final int READ_EXTERNAL_STORAGE_PERMISSION_CODE =23;
     final int WRITE_EXTERNAL_STORAGE_PERMISSION_CODE =23;
 
@@ -60,6 +102,10 @@ public class PublicacionesLugarAdminFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+    private int requestCode;
+    private int resultCode;
+    @Nullable
+    private Intent data;
 
     public PublicacionesLugarAdminFragment() {
         // Required empty public constructor
@@ -91,80 +137,105 @@ public class PublicacionesLugarAdminFragment extends Fragment {
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
     }
-    ActivityResultLauncher<Intent> activityResult = registerForActivityResult(
-            new ActivityResultContracts.StartActivityForResult(),
-            new ActivityResultCallback<ActivityResult>() {
-                @Override
-                public void onActivityResult(ActivityResult result) {
-                    Intent data = result.getData();
-                    if( result.getResultCode() == Activity.RESULT_OK) {
-                        selectedImage = data.getData();
-                        Bitmap bmp = null;
-                        try{
-                            bmp = getBitMapFromURI(selectedImage);
-                            if ( bmp != null ) {
-                                img = bmp;
-                                imgCargada.setImageBitmap(bmp);
-                            }
 
-                        } catch (IOException ioException) {
-                            txtMensaje.setText("No se pudo cargar la imagen");
-                            ioException.printStackTrace();
-                        }
-                    }
-                }
-            });
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_publicaciones_lugar_admin, container, false);
         linearLayout = (LinearLayout) v.findViewById(R.id.layoutContImagenesPost);
-        imgSubir = v.findViewById(R.id.imgSubir);
         imgCargada = (ImageView) v.findViewById(R.id.imgCargadaPost);
+
+        imgSubir = v.findViewById(R.id.imgSubir);
+        pbImage = (ProgressBar) v.findViewById(R.id.pbImage);
+        activity = getActivity();
         txtMensaje = (TextView) v.findViewById(R.id.tvMensaje);
+        edtTextoPublicacion = (EditText) v.findViewById(R.id.edtDescripcionPublicacion);
+
+//        Botones
+        btnPublicar = (Button) v.findViewById(R.id.btnPublicar);
+        btnCancelar = (Button) v.findViewById(R.id.btnCancelar);
 
         linearLayout.setVisibility(View.GONE);
 
-        img = ((BitmapDrawable) imgSubir.getDrawable()).getBitmap();
+//        Hide the progressbar
+        pbImage.setVisibility(View.INVISIBLE);
 
-         imgSubir.setOnClickListener(new View.OnClickListener() {
+        imgSubir.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                openFile(getActivity());
-                linearLayout.setVisibility(View.VISIBLE);
-
+                Intent galleryIntent = new Intent();
+                galleryIntent.setAction(Intent.ACTION_GET_CONTENT);
+                galleryIntent.setType("image/*");
+                startActivityForResult(galleryIntent, 2);
             }
         });
+
+        btnPublicar.setOnClickListener( s -> {
+            if(imageUri != null){
+                uploadToFirebase(imageUri);
+            }else{
+                Toast.makeText(activity, "¡Seleccione una imagen!", Toast.LENGTH_LONG).show();
+            }
+        });
+
         return v;
     }
 
-    public void openFile(Activity activity) {
-        context = activity;
-        //Toast.makeText(this, "Menú abrir", Toast.LENGTH_SHORT).show();
-        if (ContextCompat.checkSelfPermission(context, Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_DENIED) {
-            if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M){
-                requestPermissions(new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, READ_EXTERNAL_STORAGE_PERMISSION_CODE);
+    private void uploadToFirebase(Uri uri) {
+        StorageReference fileRef = storageReference.child(System.currentTimeMillis() + "." + getFileExtension(uri));
+//        Mandando la imagen a firebase
+        fileRef.putFile(uri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+            @Override
+            public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                fileRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                    @Override
+                    public void onSuccess(Uri uri) {
+//                        Haciendo el proceso de crear el objeto para enviar a Realtime database
+                        Publicacion p = new Publicacion();
+                        PublicacionDAO dao = new PublicacionDAO();
+
+                        p.setTexto(edtTextoPublicacion.getText().toString());
+                        p.setFecha(dtf.format(now));
+                        p.setUsuario(lugar.IdCurrentUser());
+                        p.setImgUrl(uri.toString());
+
+                        dao.uploadPublication(p);
+                        pbImage.setVisibility(View.INVISIBLE);
+                        Toast.makeText(activity, "¡La publicación se realizo con éxito!", Toast.LENGTH_LONG).show();
+                    }
+                });
             }
-        }
-        Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+        }).addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
+            @Override
+            public void onProgress(@NonNull  UploadTask.TaskSnapshot snapshot) {
+                pbImage.setVisibility(View.VISIBLE);
 
-        lugar.setContextA(context);
-        activityResult.launch(intent);
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                pbImage.setVisibility(View.INVISIBLE);
+                Toast.makeText(activity, "¡Error al subir la imagen!", Toast.LENGTH_LONG).show();
+            }
+        });
+    }
 
+//
+    private String getFileExtension(Uri uri) {
+        ContentResolver cr = applicationContext.getContentResolver();
+        MimeTypeMap mime = MimeTypeMap.getSingleton();
+        return mime.getExtensionFromMimeType(cr.getType(uri));
     }
-    private Bitmap getBitMapFromURI(Uri uri) throws IOException {
-        ParcelFileDescriptor parcelFileDescriptor = lugar.getContextA().getContentResolver().openFileDescriptor(uri,"r");
-        FileDescriptor fileDescriptor = parcelFileDescriptor.getFileDescriptor();
-        Bitmap image = BitmapFactory.decodeFileDescriptor(fileDescriptor);
-        parcelFileDescriptor.close();
-        return image;
-    }
+
     @Override
-    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-        if (requestCode == READ_EXTERNAL_STORAGE_PERMISSION_CODE && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-
+    public void onActivityResult(int requestCode, int resultCode, @Nullable  Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(requestCode == 2 && resultCode == RESULT_OK && data != null ){
+            imageUri = data.getData();
+//            imgSubir.setImageURI(imageUri);
+            imgCargada.setImageURI(imageUri);
+            linearLayout.setVisibility(View.VISIBLE);
         }
     }
 }
