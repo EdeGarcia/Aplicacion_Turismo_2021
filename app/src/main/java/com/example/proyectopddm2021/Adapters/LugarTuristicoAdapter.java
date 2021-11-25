@@ -28,7 +28,6 @@ public class LugarTuristicoAdapter extends RecyclerView.Adapter<LugarTuristicoAd
 
     private Context mContext;
     private int layoutResource;
-    private String id;
     private ArrayList<LugarTuristico> arrayListLugarTuristico;
 
     public LugarTuristicoAdapter(ArrayList<LugarTuristico> arrayListLugarTuristico, int layoutResource, Activity context) {
@@ -49,8 +48,7 @@ public class LugarTuristicoAdapter extends RecyclerView.Adapter<LugarTuristicoAd
     @Override
     public void onBindViewHolder(@NonNull LugarTuristicoViewHolder lugarTuristicoViewHolder, int position) {
         LugarTuristico lugarTuristico = arrayListLugarTuristico.get(position);
-        id = lugarTuristico.getId();
-        lugarTuristicoViewHolder.tvId.setText(id);
+        lugarTuristicoViewHolder.tvId.setText(lugarTuristico.getId());
         lugarTuristicoViewHolder.tvnombreC.setText(lugarTuristico.getNombre());
         lugarTuristicoViewHolder.tvdescripcionC.setText("Descripcion: " + lugarTuristico.getDescripcion());
         lugarTuristicoViewHolder.imgCategoria.setImageResource(R.drawable.categoria_lagos);
@@ -82,6 +80,8 @@ public class LugarTuristicoAdapter extends RecyclerView.Adapter<LugarTuristicoAd
 
         @Override
         public void onClick(View view) {
+            String id;
+            id = tvId.getText().toString();
             Intent intent = new Intent(context, PerfilLugarTuristaActivity.class);
             intent.putExtra("idLugar",id);
             context.startActivity(intent);

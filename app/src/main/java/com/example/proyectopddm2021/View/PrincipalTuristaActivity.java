@@ -40,7 +40,7 @@ public class PrincipalTuristaActivity extends AppCompatActivity {
         tvVolcanes = findViewById(R.id.tvVolcanes);
         tvSitios = findViewById(R.id.tvSitios);
         tvMuseos = findViewById(R.id.tvMuseos);
-        tvPueblos = findViewById(R.id.tvMuseos);
+        tvPueblos = findViewById(R.id.tvPueblos);
         tvLagos = findViewById(R.id.tvLagos);
         tvPlayas = findViewById(R.id.tvPlayas);
 
@@ -119,49 +119,56 @@ public class PrincipalTuristaActivity extends AppCompatActivity {
     }
 
     public void CargarlistaCategoria1(View view){
-        String volcanes;
-        volcanes = tvVolcanes.getText().toString();
+        String nLista = "Lista Volcanes";
+        String volcanes = tvVolcanes.getText().toString();
         Intent intent = new Intent(PrincipalTuristaActivity.this, CategoriaTuristaActivity.class);
         intent.putExtra("Categoria", volcanes);
+        intent.putExtra("nLista", nLista);
         startActivity(intent);
     }
 
     public void CargarlistaCategoria2(View view){
-        String sitios;
-        sitios = tvSitios.getText().toString();
+        String nLista = "Lista Sitios Arquelógico";
+        String sitios = tvSitios.getText().toString();
         Intent intent = new Intent(PrincipalTuristaActivity.this, CategoriaTuristaActivity.class);
         intent.putExtra("Categoria", sitios);
+        intent.putExtra("nLista", nLista);
         startActivity(intent);
     }
+
     public void CargarlistaCategoria3(View view){
-        String museos;
-        museos = tvMuseos.getText().toString();
+        String nLista = "Lista Museos";
+        String museos = tvMuseos.getText().toString();
         Intent intent = new Intent(PrincipalTuristaActivity.this, CategoriaTuristaActivity.class);
         intent.putExtra("Categoria", museos);
+        intent.putExtra("nLista", nLista);
         startActivity(intent);
     }
 
     public void CargarlistaCategoria4(View view){
-        String pueblos;
-        pueblos = tvPueblos.getText().toString();
+        String nLista = "Lista Pueblos";
+        String pueblos = tvPueblos.getText().toString();
         Intent intent = new Intent(PrincipalTuristaActivity.this, CategoriaTuristaActivity.class);
         intent.putExtra("Categoria", pueblos);
+        intent.putExtra("nLista", nLista);
         startActivity(intent);
     }
 
     public void CargarlistaCategoria5(View view){
-        String lagos;
-        lagos = tvLagos.getText().toString();
+        String nLista = "Lista Lagos";
+        String lagos = tvLagos.getText().toString();
         Intent intent = new Intent(PrincipalTuristaActivity.this, CategoriaTuristaActivity.class);
         intent.putExtra("Categoria", lagos);
+        intent.putExtra("nLista", nLista);
         startActivity(intent);
     }
 
     public void CargarlistaCategoria6(View view){
-        String playas;
-        playas = tvPlayas.getText().toString();
+        String nLista = "Lista Playas";
+        String playas = tvPlayas.getText().toString();
         Intent intent = new Intent(PrincipalTuristaActivity.this, CategoriaTuristaActivity.class);
         intent.putExtra("Categoria", playas);
+        intent.putExtra("nLista", nLista);
         startActivity(intent);
     }
 
