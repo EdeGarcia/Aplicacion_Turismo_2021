@@ -13,12 +13,14 @@ import com.example.proyectopddm2021.DAO.LugarTuristicoDAO;
 import com.example.proyectopddm2021.Model.LugarTuristico;
 import com.example.proyectopddm2021.Utils.Utils;
 import com.example.proyectopddm2021.View.PerfilLugarAdministradorActivity;
+import com.example.proyectopddm2021.View.PerfilLugarTuristaActivity;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.HashMap;
@@ -53,24 +55,24 @@ public class LugarTuristicoPresenter {
 
     public void DatosPerfil(TextView txtNombre, TextView txtTelefono, TextView txtDescripcion, TextView txtUbicacion, TextView txtServicios){
 
-        databaseReference = db.getReference("LugarTuristico").child(user.getUid());
-        databaseReference.addValueEventListener(new ValueEventListener() {
+        String id = PerfilLugarTuristaActivity.id.toString();
+        Query query = FirebaseDatabase.getInstance().getReference("LugarTuristico").orderByChild("id").equalTo(id);
+        query.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if(snapshot.exists()){
-                    LugarTuristico lugar = snapshot.getValue(LugarTuristico.class);
-                    _nombre = lugar.getNombre();
-                    _Uid = lugar.getId();
-                    _telefono = lugar.getTelefono();
-                    _descripcion = lugar.getDescripcion();
-                    _ubicacion = lugar.getUbicacion();
-                    _servicios = lugar.getServicio();
-
-                    txtNombre.setText(_nombre);
-                    txtDescripcion.setText(_descripcion);
-                    txtTelefono.setText(_telefono);
-                    txtUbicacion.setText(_ubicacion);
-                    txtServicios.setText(_servicios);
+                    for(DataSnapshot ds: snapshot.getChildren()) {
+                        _nombre = ds.child("nombre").getValue().toString();
+                        _telefono = ds.child("telefono").getValue().toString();
+                        _descripcion = ds.child("descripcion").getValue().toString();
+                        _ubicacion = ds.child("ubicacion").getValue().toString();
+                        _servicios = ds.child("servicio").getValue().toString();
+                        txtNombre.setText(_nombre);
+                        txtTelefono.setText(_telefono);
+                        txtDescripcion.setText(_descripcion);
+                        txtUbicacion.setText(_ubicacion);
+                        txtServicios.setText(_servicios);
+                    }
                 }else{
                     txtNombre.setText("-");
                     txtDescripcion.setText("-");

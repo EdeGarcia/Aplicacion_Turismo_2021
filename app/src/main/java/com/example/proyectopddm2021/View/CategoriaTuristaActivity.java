@@ -27,10 +27,10 @@ public class CategoriaTuristaActivity extends AppCompatActivity {
 
     private DatabaseReference databaseF, dbP;
 
-    TextView Categoria;
-    String categoria;
+    String categoria, nLista;
     public RecyclerView lTRecyclerView;
     private CategoriaPresenter presenter;
+    TextView txtLista;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,10 +39,12 @@ public class CategoriaTuristaActivity extends AppCompatActivity {
 
         lTRecyclerView = (RecyclerView) findViewById(R.id.recyclerCategoria);
         lTRecyclerView.setLayoutManager(new LinearLayoutManager(CategoriaTuristaActivity.this));
-        Categoria = (TextView) findViewById(R.id.tvVolcanes);
 
         Bundle bundle = this.getIntent().getExtras();
         categoria = bundle.getString("Categoria");
+        nLista = bundle.getString("nLista");
+        txtLista = (TextView) findViewById(R.id.nlista);
+        txtLista.setText(nLista);
 
         presenter = new CategoriaPresenter(CategoriaTuristaActivity.this);
         databaseF = FirebaseDatabase.getInstance().getReference();

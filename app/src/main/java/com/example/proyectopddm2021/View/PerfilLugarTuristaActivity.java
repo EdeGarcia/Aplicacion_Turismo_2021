@@ -6,6 +6,7 @@ import androidx.viewpager.widget.ViewPager;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.example.proyectopddm2021.Model.PagerControllerAdmin;
 import com.example.proyectopddm2021.Model.PagerControllerTurista;
@@ -20,13 +21,13 @@ public class PerfilLugarTuristaActivity extends AppCompatActivity {
     private TabItem tab1T, tab2T, tab3T;
     private PagerControllerTurista pagerAdapter;
     private ImageView portadaT;
+    public static String id;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_perfil_lugar_turista);
 
-        String id = getIntent().getStringExtra("idLugar");
         tabLayoutT = findViewById(R.id.TabLayoutTuristaT);
         viewPagerT = findViewById(R.id.ViewPagerTuristaT);
         portadaT = findViewById(R.id.imgFotoPerfilT);
@@ -35,6 +36,10 @@ public class PerfilLugarTuristaActivity extends AppCompatActivity {
         tab2T = findViewById(R.id.TabGaleriaTuristaT);
         tab3T = findViewById(R.id.TabPublicacionesTuristaT);
 
+        TextView txtId = (TextView) findViewById(R.id.txtId);
+        Bundle bundle = getIntent().getExtras();
+        id = bundle.getString("idLugar");
+        txtId.setText(id);
 
         pagerAdapter = new PagerControllerTurista(getSupportFragmentManager(),tabLayoutT.getTabCount());
         viewPagerT.setAdapter(pagerAdapter);
