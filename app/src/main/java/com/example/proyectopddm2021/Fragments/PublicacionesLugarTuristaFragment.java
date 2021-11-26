@@ -1,14 +1,25 @@
 package com.example.proyectopddm2021.Fragments;
 
+import android.app.Activity;
 import android.os.Bundle;
 
+import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.TextView;
 
+import com.example.proyectopddm2021.Presenter.LugarTuristicoPresenter;
+import com.example.proyectopddm2021.Presenter.PublicacionPresenter;
 import com.example.proyectopddm2021.R;
+
+import org.w3c.dom.Text;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -16,6 +27,13 @@ import com.example.proyectopddm2021.R;
  * create an instance of this fragment.
  */
 public class PublicacionesLugarTuristaFragment extends Fragment {
+    TextView tvNombrePostT, tvDescripcionPostT, tvNomTurista;
+    ImageView imvPerfilPostT, imvImagenPostT;
+    RecyclerView recyclerView;
+    Activity activity;
+    CardView btnLikeT;
+
+    PublicacionPresenter presenter;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -61,6 +79,20 @@ public class PublicacionesLugarTuristaFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_publicaciones_lugar_turista, container, false);
+        View v = inflater.inflate(R.layout.fragment_publicaciones_lugar_turista, container, false);
+        tvNombrePostT = (TextView) v.findViewById(R.id.tvNombrePostListT);
+        tvNomTurista = (TextView) v.findViewById(R.id.tvNombreTuristaList);
+        tvDescripcionPostT = (TextView) v.findViewById(R.id.tvDescripcionPostListT);
+        imvImagenPostT = (ImageView) v.findViewById(R.id.imgPostListT);
+        imvPerfilPostT = (ImageView) v.findViewById(R.id.imgLugarPostListT);
+        recyclerView = (RecyclerView) v.findViewById(R.id.recyclerPublicacionesT);
+        activity = getActivity();
+
+        recyclerView.setLayoutManager(new LinearLayoutManager(activity));
+
+        presenter = new PublicacionPresenter(activity);
+        presenter.getDatosFromFirebaseT(recyclerView);
+
+        return v;
     }
 }

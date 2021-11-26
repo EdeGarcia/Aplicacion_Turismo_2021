@@ -10,8 +10,8 @@
     <color name="dark_blue">#180262</color>
     <color name="themeNightPrimaryColor">#7C74EF</color>
     <color name="lightBlue">#A3B2CC</color>
-
-    <color name="cancelarColor">#7A808C</color>
-    <color name="publicacionColor">#E7E9EC</color>
+    <color name="cancelarColor">#7D8695</color>
+    <color name="publicacionColor">#FAEDEFF1</color>
+    <color name="botonPost">#D1D5DC</color>
 
 </resources>

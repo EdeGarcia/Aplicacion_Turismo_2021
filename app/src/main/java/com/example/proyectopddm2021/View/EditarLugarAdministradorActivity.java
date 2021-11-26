@@ -25,7 +25,8 @@ public class EditarLugarAdministradorActivity extends AppCompatActivity {
     private Spinner spinner;
     private LugarTuristico lugar = new LugarTuristico();
     private LugarTuristicoDAO dao = new LugarTuristicoDAO();
-    private LugarTuristicoPresenter presenter;
+    private LugarTuristicoPresenter presenter ;
+    Map<String, Object> map;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,23 +38,26 @@ public class EditarLugarAdministradorActivity extends AppCompatActivity {
         edtServicios = findViewById(R.id.edtServiciosEdit);
         edtTelefono = findViewById(R.id.edtTelefonoEdit);
         edtUbicacion = findViewById(R.id.edtUbicacionEdit);
-        spinner = (Spinner) findViewById(R.id.spinnerCat);
         btnGuardar = findViewById(R.id.btnGuardarLugar);
 
-        presenter = new LugarTuristicoPresenter(EditarLugarAdministradorActivity.this);
+        presenter = new LugarTuristicoPresenter(this);
+        presenter.MostrarDatos(edtNombre, edtTelefono, edtDescripcion,edtUbicacion, edtServicios);
 
-        presenter.DatosEditar(edtNombre, edtTelefono, edtDescripcion,edtUbicacion, edtServicios);
 
+        map = presenter.MapeoUpdate(lugar);
+        btnGuardar.setOnClickListener(v->{
+            presenter.Editar(Data(getApplicationContext()), edtNombre, edtDescripcion, edtTelefono, edtServicios, edtUbicacion);
+        });
+    }
+
+    public Map<String, Object> Data(Context context){
         lugar.setNombre(edtNombre.getText().toString());
         lugar.setDescripcion(edtDescripcion.getText().toString());
         lugar.setServicio(edtServicios.getText().toString());
         lugar.setTelefono(edtTelefono.getText().toString());
         lugar.setUbicacion(edtUbicacion.getText().toString());
-        
-        btnGuardar.setOnClickListener(v->{
-            presenter.Editar(lugar, edtNombre,edtDescripcion, edtTelefono,edtServicios, edtUbicacion);
-        });
-
+        Map<String, Object> map = presenter.MapeoUpdate(lugar);
+        return map;
     }
 
 }

@@ -22,12 +22,16 @@ import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.ParcelFileDescriptor;
 import android.provider.MediaStore;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.webkit.MimeTypeMap;
 import android.widget.Button;
 import android.widget.EditText;
@@ -42,6 +46,7 @@ import com.example.proyectopddm2021.DAO.PublicacionDAO;
 import com.example.proyectopddm2021.Model.LugarTuristico;
 import com.example.proyectopddm2021.Model.Publicacion;
 import com.example.proyectopddm2021.Model.Turista;
+import com.example.proyectopddm2021.Presenter.PublicacionPresenter;
 import com.example.proyectopddm2021.R;
 import com.example.proyectopddm2021.View.PrincipalAdministradorActivity;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -69,8 +74,8 @@ import static android.app.Activity.RESULT_OK;
 public class PublicacionesLugarAdminFragment extends Fragment {
     LinearLayout linearLayout;
     ImageView imgSubir, imgCargada;
-    Uri selectedImage;
-    Bitmap img;
+    public RecyclerView RecyclerViewPost;
+    boolean resultado = false;
 //    Botones
     Button btnPublicar, btnCancelar;
     TextView txtMensaje;
@@ -78,6 +83,7 @@ public class PublicacionesLugarAdminFragment extends Fragment {
     Context context;
     EditText edtTextoPublicacion;
     LugarTuristicoDAO lugar = new LugarTuristicoDAO();
+    PublicacionPresenter presenter;
 
 
     //Referencia para subir imagen a Storage
@@ -145,21 +151,23 @@ public class PublicacionesLugarAdminFragment extends Fragment {
         View v = inflater.inflate(R.layout.fragment_publicaciones_lugar_admin, container, false);
         linearLayout = (LinearLayout) v.findViewById(R.id.layoutContImagenesPost);
         imgCargada = (ImageView) v.findViewById(R.id.imgCargadaPost);
-
-        imgSubir = v.findViewById(R.id.imgSubir);
+        imgSubir = (ImageView) v.findViewById(R.id.imgSubir);
+        RecyclerViewPost = (RecyclerView) v.findViewById(R.id.recyclerPublicaciones);
         pbImage = (ProgressBar) v.findViewById(R.id.pbImage);
-        activity = getActivity();
-        txtMensaje = (TextView) v.findViewById(R.id.tvMensaje);
         edtTextoPublicacion = (EditText) v.findViewById(R.id.edtDescripcionPublicacion);
+        activity = getActivity();
 
 //        Botones
         btnPublicar = (Button) v.findViewById(R.id.btnPublicar);
         btnCancelar = (Button) v.findViewById(R.id.btnCancelar);
 
         linearLayout.setVisibility(View.GONE);
-
 //        Hide the progressbar
         pbImage.setVisibility(View.INVISIBLE);
+        RecyclerViewPost.setLayoutManager(new LinearLayoutManager(activity));
+
+        presenter = new PublicacionPresenter(activity);
+        presenter.getDatosFromFirebase(RecyclerViewPost);
 
         imgSubir.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -173,16 +181,34 @@ public class PublicacionesLugarAdminFragment extends Fragment {
 
         btnPublicar.setOnClickListener( s -> {
             if(imageUri != null){
-                uploadToFirebase(imageUri);
+                if(uploadToFirebase(imageUri)){
+                    imageUri = null;
+                    imgCargada.setImageURI(imageUri);
+                    edtTextoPublicacion.setText("");
+                    edtTextoPublicacion.setHint("Escriba algo...");
+                    edtTextoPublicacion.clearFocus();
+                    linearLayout.setVisibility(View.GONE);
+                }
+
+
             }else{
                 Toast.makeText(activity, "¡Seleccione una imagen!", Toast.LENGTH_LONG).show();
             }
         });
 
+        btnCancelar.setOnClickListener(su->{
+            imageUri = null;
+            imgCargada.setImageURI(imageUri);
+            edtTextoPublicacion.setText("");
+            edtTextoPublicacion.setHint("Escriba algo...");
+            edtTextoPublicacion.clearFocus();
+            linearLayout.setVisibility(View.GONE);
+        });
+
         return v;
     }
 
-    private void uploadToFirebase(Uri uri) {
+    private Boolean uploadToFirebase(Uri uri) {
         StorageReference fileRef = storageReference.child(System.currentTimeMillis() + "." + getFileExtension(uri));
 //        Mandando la imagen a firebase
         fileRef.putFile(uri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
@@ -203,6 +229,7 @@ public class PublicacionesLugarAdminFragment extends Fragment {
                         dao.uploadPublication(p);
                         pbImage.setVisibility(View.INVISIBLE);
                         Toast.makeText(activity, "¡La publicación se realizo con éxito!", Toast.LENGTH_LONG).show();
+                        resultado = true;
                     }
                 });
             }
@@ -210,15 +237,17 @@ public class PublicacionesLugarAdminFragment extends Fragment {
             @Override
             public void onProgress(@NonNull  UploadTask.TaskSnapshot snapshot) {
                 pbImage.setVisibility(View.VISIBLE);
-
+                pbImage.setProgress(100);
             }
         }).addOnFailureListener(new OnFailureListener() {
             @Override
             public void onFailure(@NonNull Exception e) {
                 pbImage.setVisibility(View.INVISIBLE);
                 Toast.makeText(activity, "¡Error al subir la imagen!", Toast.LENGTH_LONG).show();
+                resultado = false;
             }
         });
+        return resultado;
     }
 
 //

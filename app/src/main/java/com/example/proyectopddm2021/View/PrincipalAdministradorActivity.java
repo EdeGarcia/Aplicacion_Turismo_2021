@@ -8,16 +8,19 @@ import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.content.Context;
 import android.content.Intent;
+import android.media.Image;
 import android.os.Bundle;
 import android.view.MenuItem;
 
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.proyectopddm2021.DAO.LugarTuristicoDAO;
 import com.example.proyectopddm2021.Presenter.LugarTuristicoPresenter;
 import com.example.proyectopddm2021.R;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
 
 public class PrincipalAdministradorActivity extends AppCompatActivity {
@@ -26,6 +29,8 @@ public class PrincipalAdministradorActivity extends AppCompatActivity {
     ActionBarDrawerToggle actionBarDrawerToggle;
     NavigationView navigationView;
     TextView txtNombre, txtCorreo;
+    public ImageView imgPerfil;
+    public static FloatingActionButton btnAgregarImg;
     Button btnPublicaciones, btnPerfil;
 
     //Context
@@ -40,11 +45,10 @@ public class PrincipalAdministradorActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_principal_administrador);
 
-//
         contextOfApplication = getApplicationContext();
 
-//
-
+        imgPerfil = (ImageView) findViewById(R.id.imgFotoPerfilLugar);
+        //btnAgregarImg = (FloatingActionButton) findViewById(R.id.btnAgregarFotoPerfilLugar);
         txtNombre = (TextView) findViewById(R.id.txtNombreLugar);
         txtCorreo = (TextView) findViewById(R.id.txtCorreoLugar);
         btnPerfil = (Button) findViewById(R.id.btnPefil);

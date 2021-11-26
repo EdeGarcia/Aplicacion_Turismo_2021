@@ -20,7 +20,6 @@ public class PerfilLugarAdministradorActivity extends AppCompatActivity {
     TabItem tab1, tab2, tab3;
     PagerControllerAdmin pagerAdapter;
     ImageView portada;
-    private LugarTuristicoPresenter presenter = new LugarTuristicoPresenter();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,7 +28,7 @@ public class PerfilLugarAdministradorActivity extends AppCompatActivity {
 
         tabLayout = findViewById(R.id.TabLayoutTurista);
         viewPager = findViewById(R.id.ViewPagerTurista);
-        portada = findViewById(R.id.imgFotoPerfil);
+        portada = findViewById(R.id.imgFotoPerfilLugar);
 
         tab1 = findViewById(R.id.TabInformacionTurista);
         tab2 = findViewById(R.id.TabGaleriaTurista);

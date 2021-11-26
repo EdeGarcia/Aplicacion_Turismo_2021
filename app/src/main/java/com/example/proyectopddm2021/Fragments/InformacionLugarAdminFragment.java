@@ -39,6 +39,7 @@ import java.io.IOException;
 public class InformacionLugarAdminFragment extends Fragment {
     TextView txtNombreLugarT, txtDescripcion, txtTelefono, txtUbicacion, txtServicios;
     Button btnEditar;
+    LugarTuristicoPresenter presenter;
 
 
     // TODO: Rename parameter arguments, choose names that match
@@ -94,8 +95,9 @@ public class InformacionLugarAdminFragment extends Fragment {
         txtUbicacion = f.findViewById(R.id.txtUbicacion);
         btnEditar = f.findViewById(R.id.btnEditar);
 
-        LugarTuristicoPresenter presenter = new LugarTuristicoPresenter();
-        presenter.DatosPerfil(txtNombreLugarT, txtTelefono, txtDescripcion, txtUbicacion, txtServicios);
+        presenter = new LugarTuristicoPresenter(getActivity());
+
+        presenter.DatosPerfilLugarAdmin(txtNombreLugarT, txtTelefono, txtDescripcion, txtUbicacion, txtServicios);
 
         btnEditar.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -54,7 +54,6 @@ public class LugarTuristicoPresenter {
     }
 
     public void DatosPerfil(TextView txtNombre, TextView txtTelefono, TextView txtDescripcion, TextView txtUbicacion, TextView txtServicios){
-
         String id = PerfilLugarTuristaActivity.id.toString();
         Query query = FirebaseDatabase.getInstance().getReference("LugarTuristico").orderByChild("id").equalTo(id);
         query.addValueEventListener(new ValueEventListener() {
@@ -88,8 +87,43 @@ public class LugarTuristicoPresenter {
             }
         });
     }
+    public void DatosPerfilLugarAdmin(TextView txtNombre, TextView txtTelefono, TextView txtDescripcion, TextView txtUbicacion, TextView txtServicios){
 
-    public void DatosEditar(EditText edtNombre, EditText edtTelefono, EditText edtDescripcion, EditText edtUbicacion, EditText edtServicios){
+        databaseReference = db.getReference("LugarTuristico").child(user.getUid());
+        databaseReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if(snapshot.exists()){
+                    LugarTuristico lugar = snapshot.getValue(LugarTuristico.class);
+                    _nombre = lugar.getNombre();
+                    _Uid = lugar.getId();
+                    _telefono = lugar.getTelefono();
+                    _descripcion = lugar.getDescripcion();
+                    _ubicacion = lugar.getUbicacion();
+                    _servicios = lugar.getServicio();
+
+                    txtNombre.setText(_nombre);
+                    txtDescripcion.setText(_descripcion);
+                    txtTelefono.setText(_telefono);
+                    txtUbicacion.setText(_ubicacion);
+                    txtServicios.setText(_servicios);
+                }else{
+                    txtNombre.setText("-");
+                    txtDescripcion.setText("-");
+                    txtTelefono.setText("-");
+                    txtUbicacion.setText("-");
+                    txtServicios.setText("-");
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                System.out.println("The read failed: " + error.getCode());
+            }
+        });
+    }
+
+    public void MostrarDatos(EditText edtNombre, EditText edtTelefono, EditText edtDescripcion, EditText edtUbicacion, EditText edtServicios){
 
         databaseReference = db.getReference("LugarTuristico").child(user.getUid());
         databaseReference.addValueEventListener(new ValueEventListener() {
@@ -153,13 +187,13 @@ public class LugarTuristicoPresenter {
         });
     }
 
-    public void Editar(LugarTuristico lugarTuristico,EditText edtNombre, EditText edtDescripcion, EditText edtTelefono, EditText edtServicios, EditText edtUbicacion){
+    public void Editar(Map<String, Object> mapeo,EditText edtNombre, EditText edtDescripcion, EditText edtTelefono, EditText edtServicios, EditText edtUbicacion){
         if(Utils.validateEditText(edtNombre) && Utils.validateEditText(edtDescripcion) && Utils.validateEditText(edtTelefono) && Utils.validateEditText(edtServicios) && Utils.validateEditText(edtUbicacion)) {
             if (!Utils.validateTelefonoLength(edtTelefono)) {
-                daoLugar.Update(MapeoUpdate(lugarTuristico)).addOnSuccessListener(suc -> {
+                daoLugar.Update(mapeo).addOnSuccessListener(suc->{
                     Toast.makeText(context, "Se guardaron los cambios correctamente", Toast.LENGTH_SHORT).show();
                     context.startActivity(new Intent(context, PerfilLugarAdministradorActivity.class));
-                }).addOnFailureListener(f -> {
+                }).addOnFailureListener(f->{
                     Toast.makeText(context, "No se pudo actualizar", Toast.LENGTH_SHORT).show();
                 });
             }

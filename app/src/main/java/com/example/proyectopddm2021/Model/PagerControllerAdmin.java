@@ -1,6 +1,9 @@
 package com.example.proyectopddm2021.Model;
 
+import android.os.Build;
+
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
@@ -18,6 +21,7 @@ public class PagerControllerAdmin extends FragmentPagerAdapter {
         this.NumTabs = behavior;
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
     @NonNull
     @Override
     public Fragment getItem(int position) {
