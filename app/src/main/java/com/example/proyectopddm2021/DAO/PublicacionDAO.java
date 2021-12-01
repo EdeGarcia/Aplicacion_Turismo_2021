@@ -23,4 +23,8 @@ public class PublicacionDAO implements Serializable {
         databaseReference.child(p.getId()).setValue(p);
     }
 
+    public void deletePublication(String id){
+        databaseReference.child(id).removeValue();
+    }
+
 }

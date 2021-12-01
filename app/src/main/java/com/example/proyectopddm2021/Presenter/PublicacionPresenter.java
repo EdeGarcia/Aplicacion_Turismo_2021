@@ -48,6 +48,7 @@ public class PublicacionPresenter {
             public void onDataChange(@NonNull DataSnapshot datasnapshot) {
                 if(datasnapshot.exists()){
                     for(DataSnapshot ds: datasnapshot.getChildren()){
+                        String id = ds.child("id").getValue().toString();
                         String idUsuario = ds.child("usuario").getValue().toString();
                         String descripcion = ds.child("texto").getValue().toString();
                         String fecha = ds.child("fecha").getValue().toString();
@@ -60,7 +61,7 @@ public class PublicacionPresenter {
                                 if(snapshot.exists()){
                                     for(DataSnapshot ds2: snapshot.getChildren()) {
                                         String nombre = ds2.child("nombre").getValue().toString();
-                                        publicacionList.add(new Publicacion(idUsuario,fecha, url, descripcion, nombre));
+                                        publicacionList.add(new Publicacion(id,fecha, url, descripcion, nombre));
                                     }
                                     lTadapter = new PublicacionesLugarTuristicoAdapter((ArrayList<Publicacion>) publicacionList, R.layout.item_publicacion, ((Activity)context));
                                     lTRecyclerView.setAdapter(lTadapter);
@@ -99,6 +100,7 @@ public class PublicacionPresenter {
             public void onDataChange(@NonNull DataSnapshot datasnapshot) {
                 if(datasnapshot.exists()){
                     for(DataSnapshot ds: datasnapshot.getChildren()){
+                        String id = ds.child("id").getValue().toString();
                         String idUsuario = ds.child("usuario").getValue().toString();
                         String descripcion = ds.child("texto").getValue().toString();
                         String fecha = ds.child("fecha").getValue().toString();
@@ -111,7 +113,7 @@ public class PublicacionPresenter {
                                 if(snapshot.exists()){
                                     for(DataSnapshot ds2: snapshot.getChildren()) {
                                         String nombre = ds2.child("nombre").getValue().toString();
-                                        publicacionList.add(new Publicacion(idUsuario,fecha, url, descripcion, nombre));
+                                        publicacionList.add(new Publicacion(id,fecha, url, descripcion, nombre));
                                     }
                                     lTadapter = new PublicacionesLugarTuristicoAdapter((ArrayList<Publicacion>) publicacionList, R.layout.item_publicacion, ((Activity)context));
                                     lTRecyclerView.setAdapter(lTadapter);

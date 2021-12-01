@@ -88,6 +88,7 @@
                         app:cardCornerRadius="10dp"
                         android:backgroundTint="@color/botonPost">
                         <ImageView
+                            android:id="@+id/editPublication"
                             android:layout_width="match_parent"
                             android:layout_height="30dp"
                             android:layout_margin="8dp"
@@ -99,6 +100,7 @@
                         app:cardCornerRadius="10dp"
                         android:backgroundTint="@color/botonPost">
                         <ImageView
+                            android:id="@+id/deletePublication"
                             android:layout_width="match_parent"
                             android:layout_height="30dp"
                             android:layout_margin="8dp"

@@ -181,15 +181,9 @@ public class PublicacionesLugarAdminFragment extends Fragment {
 
         btnPublicar.setOnClickListener( s -> {
             if(imageUri != null){
-                if(uploadToFirebase(imageUri)){
-                    imageUri = null;
-                    imgCargada.setImageURI(imageUri);
-                    edtTextoPublicacion.setText("");
-                    edtTextoPublicacion.setHint("Escriba algo...");
-                    edtTextoPublicacion.clearFocus();
-                    linearLayout.setVisibility(View.GONE);
+                if(!uploadToFirebase(imageUri)){
+                    reset();
                 }
-
 
             }else{
                 Toast.makeText(activity, "¡Seleccione una imagen!", Toast.LENGTH_LONG).show();
@@ -197,12 +191,7 @@ public class PublicacionesLugarAdminFragment extends Fragment {
         });
 
         btnCancelar.setOnClickListener(su->{
-            imageUri = null;
-            imgCargada.setImageURI(imageUri);
-            edtTextoPublicacion.setText("");
-            edtTextoPublicacion.setHint("Escriba algo...");
-            edtTextoPublicacion.clearFocus();
-            linearLayout.setVisibility(View.GONE);
+            reset();
         });
 
         return v;
@@ -266,5 +255,14 @@ public class PublicacionesLugarAdminFragment extends Fragment {
             imgCargada.setImageURI(imageUri);
             linearLayout.setVisibility(View.VISIBLE);
         }
+    }
+
+    private void reset(){
+        imageUri = null;
+        imgCargada.setImageURI(imageUri);
+        edtTextoPublicacion.setText("");
+        edtTextoPublicacion.setHint("Escriba algo...");
+        edtTextoPublicacion.clearFocus();
+        linearLayout.setVisibility(View.GONE);
     }
 }
