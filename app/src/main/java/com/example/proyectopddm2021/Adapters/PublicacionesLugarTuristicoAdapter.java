@@ -76,8 +76,9 @@ public class PublicacionesLugarTuristicoAdapter extends RecyclerView.Adapter<Pub
                                     public void onSuccess(Void aVoid) {
                                         // Eliminar de la base de datos y storage
                                         dao.deletePublication(publicacion.getId());
-
-                                        notifyDataSetChanged();
+                                        //eliminar elemento del recycler view
+                                        arrayListPublicacion.remove(position);
+                                        notifyItemRemoved(position);
 
                                         Toast.makeText(mContext, "¡Eliminado con éxito!",Toast.LENGTH_LONG).show();
                                     }

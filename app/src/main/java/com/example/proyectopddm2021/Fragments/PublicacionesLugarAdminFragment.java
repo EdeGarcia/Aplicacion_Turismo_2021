@@ -182,10 +182,10 @@ public class PublicacionesLugarAdminFragment extends Fragment {
 
         btnPublicar.setOnClickListener( s -> {
             if(imageUri != null){
-                if(!uploadToFirebase(imageUri)){
+                uploadToFirebase(imageUri);
+                if(!imageUri.toString().isEmpty() || !edtTextoPublicacion.getText().toString().isEmpty()){
                     reset();
                 }
-
 
             }else{
                 Toast.makeText(activity, "¡Seleccione una imagen!", Toast.LENGTH_LONG).show();
@@ -199,7 +199,7 @@ public class PublicacionesLugarAdminFragment extends Fragment {
         return v;
     }
 
-    private Boolean uploadToFirebase(Uri uri) {
+    private void uploadToFirebase(Uri uri) {
         StorageReference fileRef = storageReference.child(System.currentTimeMillis() + "." + getFileExtension(uri));
 //        Mandando la imagen a firebase
         fileRef.putFile(uri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
@@ -221,7 +221,6 @@ public class PublicacionesLugarAdminFragment extends Fragment {
                         dao.uploadPublication(p);
                         pbImage.setVisibility(View.INVISIBLE);
                         Toast.makeText(activity, "¡La publicación se realizo con éxito!", Toast.LENGTH_LONG).show();
-                        resultado = true;
                     }
                 });
             }
@@ -236,10 +235,8 @@ public class PublicacionesLugarAdminFragment extends Fragment {
             public void onFailure(@NonNull Exception e) {
                 pbImage.setVisibility(View.INVISIBLE);
                 Toast.makeText(activity, "¡Error al subir la imagen!", Toast.LENGTH_LONG).show();
-                resultado = false;
             }
         });
-        return resultado;
     }
 
 //

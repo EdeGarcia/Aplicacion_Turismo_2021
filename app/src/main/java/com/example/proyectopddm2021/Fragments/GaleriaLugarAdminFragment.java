@@ -134,7 +134,8 @@ public class GaleriaLugarAdminFragment extends Fragment {
 
                 if(imageUri != null){
                     extension = getFileExtension(imageUri);
-                    if(!presenter.uploadToFirebase(imageUri, extension,pbImage)){
+                    presenter.uploadToFirebase(imageUri, extension,pbImage);
+                    if(!imageUri.toString().isEmpty()){
                         imageUri = null;
                         imgCargada.setImageURI(imageUri);
                     }

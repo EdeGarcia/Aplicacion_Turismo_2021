@@ -15,7 +15,7 @@ public class GaleriaDAO {
         g.setId(databaseReference.push().getKey());
         databaseReference.child(g.getId()).setValue(g);
     }
-    public Task<Void> delete(String id){
-        return databaseReference.child(id).removeValue();
+    public void delete(String id){
+        databaseReference.child(id).removeValue();
     }
 }

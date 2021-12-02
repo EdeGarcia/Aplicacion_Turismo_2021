@@ -143,7 +143,7 @@ public class GaleriaPresenter {
         });
 
     }
-    public Boolean uploadToFirebase(Uri uri, String extension, ProgressBar pbImage) {
+    public void uploadToFirebase(Uri uri, String extension, ProgressBar pbImage) {
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
         LocalDateTime now = LocalDateTime.now();
         StorageReference fileRef = storageReference.child(System.currentTimeMillis() + "." + extension);
@@ -154,19 +154,19 @@ public class GaleriaPresenter {
                 fileRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                     @Override
                     public void onSuccess(Uri uri) {
+                        galeriaList.clear();
 //                        Haciendo el proceso de crear el objeto para enviar a Realtime database
                         Galeria g = new Galeria();
-                        GaleriaDAO gdao = new GaleriaDAO();
+                        //GaleriaDAO gdao = new GaleriaDAO();
 
                         g.setFecha(dtf.format(now));
                         g.setIdLugar(daoLugar.IdCurrentUser());
                         g.setImgUrl(uri.toString());
                         //limpiando lista para no mostrar img duplicadas en el gridView
-                        galeriaList.clear();
-                        gdao.uploadPublication(g);
+
+                        daoGaleria.uploadPublication(g);
                         pbImage.setVisibility(View.INVISIBLE);
                         Toast.makeText(context, "¡La publicacion se realizo con éxito!", Toast.LENGTH_LONG).show();
-                        resultado = true;
                     }
                 });
             }
@@ -184,7 +184,6 @@ public class GaleriaPresenter {
                 resultado = false;
             }
         });
-        return resultado;
     }
 
     public void MostrarImagenId(String id, ImageView img){
@@ -219,11 +218,11 @@ public class GaleriaPresenter {
                 if(snapshot.exists()){
                     for(DataSnapshot ds: snapshot.getChildren()) {
                         String idImagen = ds.child("id").getValue().toString();
-                        if(daoGaleria.delete(idImagen).isSuccessful()){
-                            Toast.makeText(context, "Se elimino correctamente", Toast.LENGTH_LONG).show();
-                        }else{
-                            Toast.makeText(context, "No se pudo eliminar", Toast.LENGTH_LONG).show();
-                        }
+                       // if(daoGaleria.delete(idImagen).isSuccessful()){
+                         //   Toast.makeText(context, "Se elimino correctamente", Toast.LENGTH_LONG).show();
+                        //}else{
+                          //  Toast.makeText(context, "No se pudo eliminar", Toast.LENGTH_LONG).show();
+                        //}
                     }
                 }
             }
