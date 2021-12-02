@@ -50,7 +50,7 @@ public class PerfilLugarAdministradorActivity extends AppCompatActivity {
                     pagerAdapter.notifyDataSetChanged();
                 }
                 if (tab.getPosition() == 1){
-                    portada.setVisibility(View.VISIBLE);
+                    portada.setVisibility(View.GONE);
                     pagerAdapter.notifyDataSetChanged();
                 }
                 if (tab.getPosition() == 2){

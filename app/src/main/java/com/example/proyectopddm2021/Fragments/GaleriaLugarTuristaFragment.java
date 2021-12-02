@@ -1,13 +1,17 @@
 package com.example.proyectopddm2021.Fragments;
 
+import android.os.Build;
 import android.os.Bundle;
 
+import androidx.annotation.RequiresApi;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.GridView;
 
+import com.example.proyectopddm2021.Presenter.GaleriaPresenter;
 import com.example.proyectopddm2021.R;
 
 /**
@@ -16,6 +20,10 @@ import com.example.proyectopddm2021.R;
  * create an instance of this fragment.
  */
 public class GaleriaLugarTuristaFragment extends Fragment {
+
+    //Variables
+    GridView gridView;
+    private GaleriaPresenter presenter;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -57,10 +65,17 @@ public class GaleriaLugarTuristaFragment extends Fragment {
         }
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_galeria_lugar_turista, container, false);
+        View v = inflater.inflate(R.layout.fragment_galeria_lugar_turista, container, false);
+
+        gridView = (GridView) v.findViewById(R.id.GVGaleriaMostrarTurista);
+        presenter = new GaleriaPresenter(getActivity());
+        presenter.getDatosFromFirebaseTurista(gridView);
+
+        return v;
     }
 }

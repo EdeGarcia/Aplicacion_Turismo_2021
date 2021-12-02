@@ -31,15 +31,18 @@ public class PublicacionesLugarTuristicoAdapter extends RecyclerView.Adapter<Pub
     private Context mContext;
     private int layoutResource;
     private ArrayList<Publicacion> arrayListPublicacion;
+    private int tipo;
     //
     private PublicacionDAO dao = new PublicacionDAO();
 
 //    private ;
 
-    public PublicacionesLugarTuristicoAdapter(ArrayList<Publicacion> arrayListPublicacion, int layoutResource, Activity mContext) {
+    public PublicacionesLugarTuristicoAdapter(ArrayList<Publicacion> arrayListPublicacion, int layoutResource, Activity mContext,int tipo) {
         this.mContext = mContext;
         this.layoutResource = layoutResource;
         this.arrayListPublicacion = arrayListPublicacion;
+        this.tipo = tipo;
+
     }
 
     @Override
@@ -52,46 +55,56 @@ public class PublicacionesLugarTuristicoAdapter extends RecyclerView.Adapter<Pub
     @Override
     public void onBindViewHolder(@NonNull PublicacionesLugarTuristicoAdapter.PublicacionesViewHolder holder, int position) {
         Publicacion publicacion = arrayListPublicacion.get(position);
-        holder.tvDescripcion.setText(publicacion.getTexto());
-        holder.IdPublicacion = publicacion.getId();
-        holder.tvNombre.setText(publicacion.getUsuario());
-        holder.UrlImagen  = publicacion.getImgUrl();
-        Glide.with(mContext).load(holder.UrlImagen).into(holder.img);
 
-        holder.deletePublication.setOnClickListener(v ->{
-            new AlertDialog.Builder(mContext)
-                    .setTitle("Eliminar")
-                    .setMessage("¿Está seguro que desea eliminar la publicación?")
-                    .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int which) {
-                            //OK
-                            StorageReference photoRef = FirebaseStorage.getInstance().getReferenceFromUrl(publicacion.getImgUrl());
+        if(tipo==0){
+            holder.tvDescripcion.setText(publicacion.getTexto());
+            holder.IdPublicacion = publicacion.getId();
+            holder.tvNombre.setText(publicacion.getUsuario());
+            holder.UrlImagen  = publicacion.getImgUrl();
+            Glide.with(mContext).load(holder.UrlImagen).into(holder.imgLugar);
+            holder.deletePublication.setOnClickListener(v ->{
+                new AlertDialog.Builder(mContext)
+                        .setTitle("Eliminar")
+                        .setMessage("¿Está seguro que desea eliminar la publicación?")
+                        .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int which) {
+                                //OK
+                                StorageReference photoRef = FirebaseStorage.getInstance().getReferenceFromUrl(publicacion.getImgUrl());
 
-                            photoRef.delete().addOnSuccessListener(new OnSuccessListener<Void>() {
-                                @Override
-                                public void onSuccess(Void aVoid) {
-                                    // Eliminar de la base de datos y storage
-                                    dao.deletePublication(publicacion.getId());
+                                photoRef.delete().addOnSuccessListener(new OnSuccessListener<Void>() {
+                                    @Override
+                                    public void onSuccess(Void aVoid) {
+                                        // Eliminar de la base de datos y storage
+                                        dao.deletePublication(publicacion.getId());
 
-                                    notifyDataSetChanged();
+                                        notifyDataSetChanged();
 
-                                    Toast.makeText(mContext, "¡Eliminado con éxito!",Toast.LENGTH_LONG).show();
-                                }
-                            }).addOnFailureListener(new OnFailureListener() {
-                                @Override
-                                public void onFailure(@NonNull Exception exception) {
-                                    // Uh-oh, an error occurred!
-                                    Toast.makeText(mContext, "¡Ocurrió un error!",Toast.LENGTH_LONG).show();
-                                }
-                            });
-                        }
-                    })
+                                        Toast.makeText(mContext, "¡Eliminado con éxito!",Toast.LENGTH_LONG).show();
+                                    }
+                                }).addOnFailureListener(new OnFailureListener() {
+                                    @Override
+                                    public void onFailure(@NonNull Exception exception) {
+                                        // Uh-oh, an error occurred!
+                                        Toast.makeText(mContext, "¡Ocurrió un error!",Toast.LENGTH_LONG).show();
+                                    }
+                                });
+                            }
+                        })
 
-                    // CANCEL
-                    .setNegativeButton(android.R.string.no, null)
-                    .setIcon(android.R.drawable.ic_dialog_alert)
-                    .show();
-        });
+                        // CANCEL
+                        .setNegativeButton(android.R.string.no, null)
+                        .setIcon(android.R.drawable.ic_dialog_alert)
+                        .show();
+            });
+        }else if(tipo==1){
+            holder.tvDescripcionT.setText(publicacion.getTexto());
+            holder.IdPublicacionT = publicacion.getId();
+            holder.tvNombreT.setText(publicacion.getUsuario());
+            holder.UrlImagenT  = publicacion.getImgUrl();
+            Glide.with(mContext).load(holder.UrlImagenT).into(holder.imgTurista);
+        }
+
+
     }
 
     @Override
@@ -101,9 +114,9 @@ public class PublicacionesLugarTuristicoAdapter extends RecyclerView.Adapter<Pub
 
 
     public class PublicacionesViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
-        String IdPublicacion, UrlImagen;
-        TextView tvNombre, tvDescripcion;
-        ImageView img;
+        String IdPublicacion, IdPublicacionT,UrlImagenT, UrlImagen;
+        TextView tvNombre,tvNombreT, tvDescripcion, tvDescripcionT;
+        ImageView imgLugar, imgTurista;
         Button btnMeGusta, btnFavoritos;
         Context context;
 
@@ -112,9 +125,15 @@ public class PublicacionesLugarTuristicoAdapter extends RecyclerView.Adapter<Pub
 
         public PublicacionesViewHolder(@NonNull View itemView, Context context) {
             super(itemView);
+            //botones Lugar turistico
             tvNombre = (TextView) itemView.findViewById(R.id.tvNombrePostList);
             tvDescripcion = (TextView) itemView.findViewById(R.id.tvDescripcionPostList);
-            img = (ImageView) itemView.findViewById(R.id.imgPostList);
+            imgLugar = (ImageView) itemView.findViewById(R.id.imgPostList);
+
+            //botones Turista
+            tvNombreT = (TextView) itemView.findViewById(R.id.tvNombrePostListT);
+            tvDescripcionT = (TextView) itemView.findViewById(R.id.tvDescripcionPostListT);
+            imgTurista = (ImageView) itemView.findViewById(R.id.imgPostListT);
 
             //
             editPublication = (ImageView) itemView.findViewById(R.id.editPublication);

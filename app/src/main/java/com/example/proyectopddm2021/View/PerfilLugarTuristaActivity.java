@@ -56,7 +56,7 @@ public class PerfilLugarTuristaActivity extends AppCompatActivity {
                     pagerAdapter.notifyDataSetChanged();
                 }
                 if (tab.getPosition() == 1){
-                    portadaT.setVisibility(View.VISIBLE);
+                    portadaT.setVisibility(View.GONE);
                     pagerAdapter.notifyDataSetChanged();
                 }
                 if (tab.getPosition() == 2){
