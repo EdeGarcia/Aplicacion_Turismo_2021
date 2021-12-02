@@ -4,11 +4,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Fragments.GaleriaLugarTuristaFragment"
-    android:layout_margin="16dp"
     android:orientation="vertical">
 
     <GridView
-        android:id="@+id/GVGaleriaTurista"
+        android:id="@+id/GVGaleriaMostrarTurista"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:numColumns="3"

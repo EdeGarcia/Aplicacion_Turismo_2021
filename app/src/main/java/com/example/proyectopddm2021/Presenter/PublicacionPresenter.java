@@ -53,6 +53,7 @@ public class PublicacionPresenter {
                         String descripcion = ds.child("texto").getValue().toString();
                         String fecha = ds.child("fecha").getValue().toString();
                         String url = ds.child("imgUrl").getValue().toString();
+                        publicacionList.clear();
 
                         Query queryLugar = FirebaseDatabase.getInstance().getReference("LugarTuristico").orderByChild("id").equalTo(idUsuario);
                         queryLugar.addValueEventListener(new ValueEventListener() {
@@ -63,7 +64,7 @@ public class PublicacionPresenter {
                                         String nombre = ds2.child("nombre").getValue().toString();
                                         publicacionList.add(new Publicacion(id,fecha, url, descripcion, nombre));
                                     }
-                                    lTadapter = new PublicacionesLugarTuristicoAdapter((ArrayList<Publicacion>) publicacionList, R.layout.item_publicacion, ((Activity)context));
+                                    lTadapter = new PublicacionesLugarTuristicoAdapter((ArrayList<Publicacion>) publicacionList, R.layout.item_publicacion, ((Activity)context),0);
                                     lTRecyclerView.setAdapter(lTadapter);
                                 }
                             }
@@ -115,7 +116,7 @@ public class PublicacionPresenter {
                                         String nombre = ds2.child("nombre").getValue().toString();
                                         publicacionList.add(new Publicacion(id,fecha, url, descripcion, nombre));
                                     }
-                                    lTadapter = new PublicacionesLugarTuristicoAdapter((ArrayList<Publicacion>) publicacionList, R.layout.item_publicacion, ((Activity)context));
+                                    lTadapter = new PublicacionesLugarTuristicoAdapter((ArrayList<Publicacion>) publicacionList, R.layout.item_publicacion_turista, ((Activity)context),1);
                                     lTRecyclerView.setAdapter(lTadapter);
                                 }
                             }

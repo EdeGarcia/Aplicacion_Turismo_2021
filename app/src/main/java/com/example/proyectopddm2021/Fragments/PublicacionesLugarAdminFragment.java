@@ -179,10 +179,12 @@ public class PublicacionesLugarAdminFragment extends Fragment {
             }
         });
 
+
         btnPublicar.setOnClickListener( s -> {
             if(imageUri != null){
                 if(!uploadToFirebase(imageUri)){
                 }
+
 
             }else{
                 Toast.makeText(activity, "¡Seleccione una imagen!", Toast.LENGTH_LONG).show();
@@ -214,6 +216,7 @@ public class PublicacionesLugarAdminFragment extends Fragment {
                         p.setUsuario(lugar.IdCurrentUser());
                         p.setImgUrl(uri.toString());
 
+                        //galeriaList.clear();
                         dao.uploadPublication(p);
                         pbImage.setVisibility(View.INVISIBLE);
                         Toast.makeText(activity, "¡La publicación se realizo con éxito!", Toast.LENGTH_LONG).show();
