@@ -182,9 +182,10 @@ public class PublicacionesLugarAdminFragment extends Fragment {
 
         btnPublicar.setOnClickListener( s -> {
             if(imageUri != null){
-                if(!uploadToFirebase(imageUri)){
+                uploadToFirebase(imageUri);
+                if(!imageUri.toString().isEmpty() || !edtTextoPublicacion.getText().toString().isEmpty()){
+                    reset();
                 }
-
 
             }else{
                 Toast.makeText(activity, "¡Seleccione una imagen!", Toast.LENGTH_LONG).show();
@@ -195,10 +196,11 @@ public class PublicacionesLugarAdminFragment extends Fragment {
             reset();
         });
 
+
         return v;
     }
 
-    private Boolean uploadToFirebase(Uri uri) {
+    private void uploadToFirebase(Uri uri) {
         StorageReference fileRef = storageReference.child(System.currentTimeMillis() + "." + getFileExtension(uri));
 //        Mandando la imagen a firebase
         fileRef.putFile(uri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
@@ -220,8 +222,6 @@ public class PublicacionesLugarAdminFragment extends Fragment {
                         dao.uploadPublication(p);
                         pbImage.setVisibility(View.INVISIBLE);
                         Toast.makeText(activity, "¡La publicación se realizo con éxito!", Toast.LENGTH_LONG).show();
-                        reset();
-                        resultado = true;
                     }
                 });
             }
@@ -236,13 +236,12 @@ public class PublicacionesLugarAdminFragment extends Fragment {
             public void onFailure(@NonNull Exception e) {
                 pbImage.setVisibility(View.INVISIBLE);
                 Toast.makeText(activity, "¡Error al subir la imagen!", Toast.LENGTH_LONG).show();
-                resultado = false;
             }
         });
-        return resultado;
     }
 
-//
+
+
     private String getFileExtension(Uri uri) {
         ContentResolver cr = applicationContext.getContentResolver();
         MimeTypeMap mime = MimeTypeMap.getSingleton();
@@ -254,6 +253,7 @@ public class PublicacionesLugarAdminFragment extends Fragment {
         super.onActivityResult(requestCode, resultCode, data);
         if(requestCode == 2 && resultCode == RESULT_OK && data != null ){
             imageUri = data.getData();
+//            imgSubir.setImageURI(imageUri);
             imgCargada.setImageURI(imageUri);
             linearLayout.setVisibility(View.VISIBLE);
         }
