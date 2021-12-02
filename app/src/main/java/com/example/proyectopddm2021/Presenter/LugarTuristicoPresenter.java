@@ -34,7 +34,7 @@ public class LugarTuristicoPresenter {
     FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
     LugarTuristico lugarTuristicoData = new LugarTuristico();
 
-    String _nombre, _Uid, _telefono, _ubicacion,_descripcion, _servicios, _correo;
+    String _nombre, _Uid, _telefono, _ubicacion,_descripcion, _servicios, _correo, _calificacionLT;
 
     public LugarTuristicoPresenter(Activity context) {
         this.context = context;
@@ -50,11 +50,12 @@ public class LugarTuristicoPresenter {
         lugarMap.put("ubicacion", lugarTuristico.getUbicacion());
         lugarMap.put("descripcion", lugarTuristico.getDescripcion());
         lugarMap.put("servicio", lugarTuristico.getServicio());
+        lugarMap.put("calificacion", lugarTuristico.getCalificacion());
         return lugarMap;
     }
 
-    public void DatosPerfil(TextView txtNombre, TextView txtTelefono, TextView txtDescripcion, TextView txtUbicacion, TextView txtServicios){
-        String id = PerfilLugarTuristaActivity.id.toString();
+    public void DatosPerfil(TextView txtNombre, TextView txtTelefono, TextView txtDescripcion, TextView txtUbicacion, TextView txtServicios, TextView txtCalificacionLT){
+        String id = PerfilLugarTuristaActivity.idLugarTuristicoA.toString();
         Query query = FirebaseDatabase.getInstance().getReference("LugarTuristico").orderByChild("id").equalTo(id);
         query.addValueEventListener(new ValueEventListener() {
             @Override
@@ -66,11 +67,13 @@ public class LugarTuristicoPresenter {
                         _descripcion = ds.child("descripcion").getValue().toString();
                         _ubicacion = ds.child("ubicacion").getValue().toString();
                         _servicios = ds.child("servicio").getValue().toString();
+                        _calificacionLT = ds.child("calificacion").getValue().toString();
                         txtNombre.setText(_nombre);
                         txtTelefono.setText(_telefono);
                         txtDescripcion.setText(_descripcion);
                         txtUbicacion.setText(_ubicacion);
                         txtServicios.setText(_servicios);
+                        txtCalificacionLT.setText(_calificacionLT);
                     }
                 }else{
                     txtNombre.setText("-");
@@ -78,6 +81,7 @@ public class LugarTuristicoPresenter {
                     txtTelefono.setText("-");
                     txtUbicacion.setText("-");
                     txtServicios.setText("-");
+                    txtCalificacionLT.setText("-");
                 }
             }
 

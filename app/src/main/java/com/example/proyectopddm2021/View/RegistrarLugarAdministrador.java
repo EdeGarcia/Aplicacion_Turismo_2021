@@ -82,6 +82,7 @@ public class RegistrarLugarAdministrador extends AppCompatActivity {
         lugar.setUbicacion(edtUbicacion.getText().toString());
         lugar.setCategoria(spinnerCat.getSelectedItem().toString());
         lugar.setServicio(edtServicios.getText().toString());
+        lugar.setCalificacion("0.0");
 
         dao.addAuth(lugar).addOnSuccessListener(suc ->
         {

@@ -8,12 +8,12 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.proyectopddm2021.Model.PagerControllerAdmin;
 import com.example.proyectopddm2021.Model.PagerControllerTurista;
-import com.example.proyectopddm2021.Presenter.LugarTuristicoPresenter;
 import com.example.proyectopddm2021.R;
 import com.google.android.material.tabs.TabItem;
 import com.google.android.material.tabs.TabLayout;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class PerfilLugarTuristaActivity extends AppCompatActivity {
     private TabLayout tabLayoutT;
@@ -21,7 +21,9 @@ public class PerfilLugarTuristaActivity extends AppCompatActivity {
     private TabItem tab1T, tab2T, tab3T;
     private PagerControllerTurista pagerAdapter;
     private ImageView portadaT;
-    public static String id;
+    FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+    public static String idLugarTuristicoA, idTuristaA;
+    TextView txtidTurista;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,8 +40,11 @@ public class PerfilLugarTuristaActivity extends AppCompatActivity {
 
         TextView txtId = (TextView) findViewById(R.id.txtId);
         Bundle bundle = getIntent().getExtras();
-        id = bundle.getString("idLugar");
-        txtId.setText(id);
+        idLugarTuristicoA = bundle.getString("idLugar");
+        txtId.setText(idLugarTuristicoA);
+        idTuristaA = user.getUid();
+        txtidTurista = (TextView) findViewById(R.id.txtIdTurista);
+        txtidTurista.setText(idTuristaA);
 
         pagerAdapter = new PagerControllerTurista(getSupportFragmentManager(),tabLayoutT.getTabCount());
         viewPagerT.setAdapter(pagerAdapter);

@@ -10,6 +10,7 @@ import java.io.Serializable;
 
 public class LugarTuristico implements Serializable {
     String id;
+    String calificacion;
     String categoria;
     String nombre;
     String correo;
@@ -35,6 +36,14 @@ public class LugarTuristico implements Serializable {
 
     public void setId(String id) {
         this.id = id;
+    }
+
+    public String getCalificacion() {
+        return calificacion;
+    }
+
+    public void setCalificacion(String calificacion) {
+        this.calificacion = calificacion;
     }
 
     public String getCategoria() {

@@ -2,28 +2,20 @@ package com.example.proyectopddm2021.Presenter;
 
 import android.app.Activity;
 import android.content.Context;
-import android.net.Uri;
-import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.bumptech.glide.Glide;
-import com.example.proyectopddm2021.Adapters.LugarTuristicoAdapter;
 import com.example.proyectopddm2021.Adapters.PublicacionesLugarTuristicoAdapter;
 import com.example.proyectopddm2021.DAO.LugarTuristicoDAO;
-import com.example.proyectopddm2021.Model.LugarTuristico;
 import com.example.proyectopddm2021.Model.Publicacion;
 import com.example.proyectopddm2021.R;
 import com.example.proyectopddm2021.View.PerfilLugarTuristaActivity;
-import com.example.proyectopddm2021.View.PrincipalAdministradorActivity;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
-import com.google.firebase.storage.FirebaseStorage;
-import com.google.firebase.storage.StorageReference;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -92,7 +84,7 @@ public class PublicacionPresenter {
 
     }
     public void getDatosFromFirebaseT(RecyclerView lTRecyclerView){
-        id = PerfilLugarTuristaActivity.id.toString();
+        id = PerfilLugarTuristaActivity.idLugarTuristicoA.toString();
         Query query;
         query = FirebaseDatabase.getInstance().getReference("Publicacion").orderByChild("usuario").equalTo(id);
 

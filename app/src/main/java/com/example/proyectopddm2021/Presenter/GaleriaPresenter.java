@@ -102,7 +102,7 @@ public class GaleriaPresenter {
 
     }
     public void getDatosFromFirebaseTurista(GridView grid){
-        id = PerfilLugarTuristaActivity.id;
+        id = PerfilLugarTuristaActivity.idLugarTuristicoA;
         Query query;
         query = FirebaseDatabase.getInstance().getReference("Galeria").orderByChild("idLugar").equalTo(id);
 
