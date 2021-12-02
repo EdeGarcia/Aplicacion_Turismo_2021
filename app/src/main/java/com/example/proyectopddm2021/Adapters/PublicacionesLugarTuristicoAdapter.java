@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,6 +21,7 @@ import com.example.proyectopddm2021.DAO.PublicacionDAO;
 import com.example.proyectopddm2021.Model.LugarTuristico;
 import com.example.proyectopddm2021.Model.Publicacion;
 import com.example.proyectopddm2021.R;
+import com.example.proyectopddm2021.View.EditarPublicacionesAdministradorActivity;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.storage.FirebaseStorage;
@@ -91,6 +93,14 @@ public class PublicacionesLugarTuristicoAdapter extends RecyclerView.Adapter<Pub
                     .setNegativeButton(android.R.string.no, null)
                     .setIcon(android.R.drawable.ic_dialog_alert)
                     .show();
+        });
+
+        holder.editPublication.setOnClickListener( w -> {
+            Intent intent = new Intent(mContext, EditarPublicacionesAdministradorActivity.class);
+
+            intent.putExtra("publicacion", publicacion);
+
+            w.getContext().startActivity(intent);
         });
     }
 

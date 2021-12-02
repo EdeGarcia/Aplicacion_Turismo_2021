@@ -182,7 +182,6 @@ public class PublicacionesLugarAdminFragment extends Fragment {
         btnPublicar.setOnClickListener( s -> {
             if(imageUri != null){
                 if(!uploadToFirebase(imageUri)){
-                    reset();
                 }
 
             }else{
@@ -218,6 +217,7 @@ public class PublicacionesLugarAdminFragment extends Fragment {
                         dao.uploadPublication(p);
                         pbImage.setVisibility(View.INVISIBLE);
                         Toast.makeText(activity, "¡La publicación se realizo con éxito!", Toast.LENGTH_LONG).show();
+                        reset();
                         resultado = true;
                     }
                 });
@@ -251,7 +251,6 @@ public class PublicacionesLugarAdminFragment extends Fragment {
         super.onActivityResult(requestCode, resultCode, data);
         if(requestCode == 2 && resultCode == RESULT_OK && data != null ){
             imageUri = data.getData();
-//            imgSubir.setImageURI(imageUri);
             imgCargada.setImageURI(imageUri);
             linearLayout.setVisibility(View.VISIBLE);
         }

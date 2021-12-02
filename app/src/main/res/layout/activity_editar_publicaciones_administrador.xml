@@ -54,25 +54,33 @@
         app:layout_constraintTop_toBottomOf="@id/btnActualizarImagenPost">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/edtDescripcionLugar"
+            android:id="@+id/edtTextoPost"
             android:layout_width="match_parent"
             android:layout_height="170dp"
             android:inputType="textMultiLine" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
-    <Button
-        android:id="@+id/button"
+    <ProgressBar
+        android:id="@+id/pbEditImage"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Guardar"
-        android:textSize="16dp"
-        android:layout_marginTop="20dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/layoutEditarPublicaiones"
-        android:backgroundTint="@color/dark_blue"
-        android:textAllCaps="false"/>
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="@id/layoutEditarPublicaiones"
+        app:layout_constraintVertical_bias="0.519" />
 
+    <Button
+        android:id="@+id/btnEditPost"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="84dp"
+        android:backgroundTint="@color/dark_blue"
+        android:text="Guardar"
+        android:textAllCaps="false"
+        android:textSize="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/layoutEditarPublicaiones" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,6 +1,8 @@
 package com.example.proyectopddm2021.Model;
 
-public class Publicacion {
+import java.io.Serializable;
+
+public class Publicacion implements Serializable {
      String id;
      String fecha;
      String imgUrl;
