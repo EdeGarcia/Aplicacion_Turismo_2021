@@ -43,6 +43,7 @@ public class CategoriaPresenter {
                         String id = ds.child("id").getValue().toString();
                         String nombre = ds.child("nombre").getValue().toString();
                         String descripcion = ds.child("descripcion").getValue().toString();
+                        String uri = ds.child("imgUri").getValue().toString();
                         lugarTuristicosList.add(new LugarTuristico(id,nombre, descripcion));
                     }
 

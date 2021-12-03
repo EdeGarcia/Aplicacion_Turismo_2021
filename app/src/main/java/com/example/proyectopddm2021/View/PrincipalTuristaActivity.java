@@ -56,41 +56,29 @@ public class PrincipalTuristaActivity extends AppCompatActivity {
                         startActivity(intent);
                         break;
 
-                    /*case R.id.nav_drawer1:
-                        Intent intent1 = new Intent(PrincipalTuristaActivity.this, .class);
-                        startActivity(intent1);
+                    case R.id.nav_perfil:
+                        //Intent intent1 = new Intent(PrincipalTuristaActivity.this, .class);
+                        //startActivity(intent1);
 
-                        break;*/
+                        break;
 
-                    /*case R.id.nav_drawer2:
-                        Intent intent2 = new Intent(PrincipalTuristaActivity.this, .class);
-                        startActivity(intent2);
+                    case R.id.nav_favoritos:
+                        // Intent intent2 = new Intent(PrincipalTuristaActivity.this, .class);
+                        // startActivity(intent2);
 
-                        break;*/
+                        break;
 
-                    case R.id.nav_drawer3:
+                    case R.id.nav_info:
                         Intent intent3 = new Intent(PrincipalTuristaActivity.this, InformacionAppActivity.class);
                         startActivity(intent3);
                         break;
 
-                    case R.id.nav_drawer4:
+                    case R.id.nav_sesiom:
                         dao.signOut();
                         Intent intent4 = new Intent(PrincipalTuristaActivity.this, TipoUsuarioActivity.class);
                         startActivity(intent4);
                         break;
 
-
-
-
-//Paste your privacy policy link
-
-//                    case  R.id.nav_Policy:{
-//
-//                        Intent browserIntent  = new Intent(Intent.ACTION_VIEW , Uri.parse(""));
-//                        startActivity(browserIntent);
-//
-//                    }
-                    //       break;
                     case  R.id.nav_share:{
 
                         Intent sharingIntent = new Intent(android.content.Intent.ACTION_SEND);

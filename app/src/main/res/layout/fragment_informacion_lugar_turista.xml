@@ -27,8 +27,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Calificacion:"
-                    android:textColor="@color/black"
-                    android:textSize="20sp"
+                    android:textColor="@color/white"
+                    android:textSize="5sp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"></TextView>
 
@@ -38,8 +38,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="6dp"
                     android:text="0.0"
-                    android:textColor="@color/black"
-                    android:textSize="20sp"
+                    android:textColor="@color/white"
+                    android:textSize="5sp"
                     app:layout_constraintStart_toEndOf="@+id/textView"
                     app:layout_constraintTop_toTopOf="parent"></TextView>
 
@@ -49,8 +49,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="24dp"
                     android:text="Votantes:"
-                    android:textColor="@color/black"
-                    android:textSize="20sp"
+                    android:textColor="@color/white"
+                    android:textSize="5sp"
                     app:layout_constraintStart_toEndOf="@+id/txtCalificacionLT"
                     app:layout_constraintTop_toTopOf="parent"></TextView>
 
@@ -60,8 +60,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="6dp"
                     android:text="0"
-                    android:textColor="@color/black"
-                    android:textSize="20sp"
+                    android:textColor="@color/white"
+                    android:textSize="5sp"
                     app:layout_constraintStart_toEndOf="@+id/textView2"
                     app:layout_constraintTop_toTopOf="parent"></TextView>
 
@@ -71,122 +71,53 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:layout_marginLeft="30dp">
                 <TextView
                     android:id="@+id/txtLugar"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/nombreLugar"
                     android:textSize="20sp"
-                    android:textColor="@color/black"
-                    android:layout_marginTop="20dp"
-                    android:layout_marginRight="10dp">
+                    android:textAllCaps="true"
+                    android:textStyle="bold"
+                    android:textColor="@color/dark_blue"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginRight="20dp"
+                    >
 
                 </TextView>
 
 
             </LinearLayout>
-
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/ubicacion"
-                android:textSize="20sp"
-                android:textColor="@color/black"
-                android:layout_marginTop="8dp">
-            </TextView>
-
-            <TextView
-                android:id="@+id/txtUbicacion"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text=""
-                android:textSize="20sp"
-                android:textColor="@color/black">
-            </TextView>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/Telefono"
-                android:textSize="20sp"
-                android:textColor="@color/black"
-                android:layout_marginTop="8dp">
-            </TextView>
-
-            <TextView
-                android:id="@+id/txtTelefono"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text=""
-                android:textSize="20sp"
-                android:textColor="@color/black">
-            </TextView>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/Descripcion"
-                android:textSize="20sp"
-                android:textColor="@color/black"
-                android:layout_marginTop="8dp">
-            </TextView>
-
-            <TextView
-                android:id="@+id/txtDescripcion"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text=""
-                android:textSize="20sp"
-                android:textColor="@color/black"
-                >
-            </TextView>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/Servicios"
-                android:textSize="20sp"
-                android:textColor="@color/black"
-                android:layout_marginTop="8dp">
-            </TextView>
-
-            <TextView
-                android:id="@+id/txtServicios"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text=""
-                android:textSize="20sp"
-                android:textColor="@color/black">
-            </TextView>
-
             <TextView
                 android:id="@+id/txtCalificacion"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Califica este lugar"
-                android:textSize="20sp"
-                android:textColor="@color/black"
-                android:layout_marginTop="10dp">
+                android:textSize="18sp"
+                android:textColor="@color/cancelarColor"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="30dp">
             </TextView>
 
             <RatingBar
                 android:id="@+id/ratingBar"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="46dp"
                 android:layout_marginTop="5dp"
                 android:numStars="5"
                 android:progressTint="@color/yellow"
-                android:onClick="OnclickCalificacion"
-                android:rating="0"/>
+                android:rating="0"
+                android:layout_marginLeft="30dp"/>
 
             <LinearLayout
                 android:id="@+id/LayoutCalificacion"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:visibility="gone">
+                android:visibility="gone"
+                android:layout_marginLeft="30dp">
 
                 <Button
                     android:id="@+id/btnGuardarCalificacion"
@@ -202,6 +133,94 @@
 
             </LinearLayout>
 
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/ubicacion"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="@color/dark_blue"
+                android:layout_marginTop="15dp"
+                android:layout_marginLeft="30dp">
+            </TextView>
+
+            <TextView
+                android:id="@+id/txtUbicacion"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textSize="20sp"
+                android:layout_marginTop="10dp"
+                android:textColor="@color/black"
+                android:layout_marginLeft="30dp">
+            </TextView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/Telefono"
+                android:textSize="20sp"
+                android:textColor="@color/dark_blue"
+                android:textStyle="bold"
+                android:layout_marginTop="15dp"
+                android:layout_marginLeft="30dp">
+            </TextView>
+
+            <TextView
+                android:id="@+id/txtTelefono"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textSize="20sp"
+                android:textColor="@color/black"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="30dp">
+            </TextView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/Descripcion"
+                android:textSize="20sp"
+                android:textColor="@color/dark_blue"
+                android:textStyle="bold"
+                android:layout_marginTop="15dp"
+                android:layout_marginLeft="30dp">
+            </TextView>
+
+            <TextView
+                android:id="@+id/txtDescripcion"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textSize="20sp"
+                android:textColor="@color/black"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="30dp">
+            </TextView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/Servicios"
+                android:textSize="20sp"
+                android:textColor="@color/dark_blue"
+                android:textStyle="bold"
+                android:layout_marginTop="15dp"
+                android:layout_marginLeft="30dp">
+            </TextView>
+
+            <TextView
+                android:id="@+id/txtServicios"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textSize="20sp"
+                android:textColor="@color/black"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="30dp">
+            </TextView>
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

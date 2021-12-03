@@ -20,7 +20,7 @@
                 android:layout_height="match_parent"
                 android:orientation="horizontal">
 
-                <ImageView
+                <com.google.android.material.imageview.ShapeableImageView
                     android:id="@+id/imgLugarPostList"
                     android:layout_width="50dp"
                     android:layout_height="50dp"
@@ -28,6 +28,9 @@
                     android:layout_marginTop="10dp"
                     android:layout_marginRight="10dp"
                     android:layout_marginBottom="10dp"
+                    android:scaleType="fitXY"
+                    android:adjustViewBounds="true"
+                    app:shapeAppearanceOverlay="@style/Circular"
                     android:src="@drawable/icono_subir_imagen" />
                 <TextView
                     android:id="@+id/tvNombrePostList"
@@ -35,8 +38,10 @@
                     android:layout_height="wrap_content"
                     android:paddingTop="10dp"
                     android:paddingBottom="10dp"
-                    android:textSize="20sp"
+                    android:textSize="23sp"
                     android:text="NombreLugar"
+                    android:textStyle="bold"
+                    android:textColor="@color/dark_blue"
                     android:layout_marginTop="10dp"/>
             </LinearLayout>
             <LinearLayout
@@ -48,6 +53,7 @@
                     android:id="@+id/tvDescripcionPostList"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:textSize="20sp"
                     android:text="Descripcion"/>
                 <LinearLayout
                     android:id="@+id/layoutImgsPost"
@@ -60,7 +66,10 @@
                         android:layout_height="200dp"
                         android:src="@drawable/icono_subir_imagen"
                         android:layout_marginTop="10dp"
-                        android:layout_marginLeft="10dp" />
+                        android:layout_marginLeft="10dp"
+                        android:scaleType="fitXY"
+                        android:adjustViewBounds="true"
+                        />
                 </LinearLayout>
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -68,25 +77,13 @@
                     android:orientation="horizontal"
                     android:gravity="center"
                     android:layout_marginTop="10dp">
-                    <androidx.cardview.widget.CardView
-                        android:layout_width="100dp"
-                        android:layout_height="50dp"
-                        android:layout_marginRight="10dp"
-                        app:cardCornerRadius="10dp"
-                        android:backgroundTint="@color/botonPost">
-                        <ImageView
-                            android:layout_width="match_parent"
-                            android:layout_height="30dp"
-                            android:layout_margin="8dp"
-                            android:src="@drawable/like"/>
 
-                    </androidx.cardview.widget.CardView>
                     <androidx.cardview.widget.CardView
                         android:layout_width="100dp"
                         android:layout_height="50dp"
                         android:layout_marginRight="10dp"
                         app:cardCornerRadius="10dp"
-                        android:backgroundTint="@color/botonPost">
+                        android:backgroundTint="@color/dark_blue">
                         <ImageView
                             android:id="@+id/editPublication"
                             android:layout_width="match_parent"
@@ -98,7 +95,7 @@
                         android:layout_width="100dp"
                         android:layout_height="50dp"
                         app:cardCornerRadius="10dp"
-                        android:backgroundTint="@color/botonPost">
+                        android:backgroundTint="@color/dark_blue">
                         <ImageView
                             android:id="@+id/deletePublication"
                             android:layout_width="match_parent"

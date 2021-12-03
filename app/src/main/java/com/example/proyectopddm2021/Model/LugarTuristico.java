@@ -20,7 +20,14 @@ public class LugarTuristico implements Serializable {
     String descripcion;
     String servicio;
     String tipoUsuario;
+    String imgUri;
     Context contextA;
+    public LugarTuristico(String id,String nombre, String descripcion, String uri) {
+        this.id = id;
+        this.nombre = nombre;
+        this.descripcion = descripcion;
+        this.imgUri = uri;
+    }
     public LugarTuristico(String id,String nombre, String descripcion) {
         this.id = id;
         this.nombre = nombre;
@@ -124,5 +131,13 @@ public class LugarTuristico implements Serializable {
 
     public void setContextA(Context context) {
         this.contextA = context;
+    }
+
+    public String getImgUri() {
+        return imgUri;
+    }
+
+    public void setImgUri(String imgUri) {
+        this.imgUri = imgUri;
     }
 }

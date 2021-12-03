@@ -10,7 +10,10 @@
         android:id="@+id/imgFotoPerfilT"
         android:layout_width="match_parent"
         android:layout_height="170dp"
-        android:src="@drawable/categoria_lugares"/>
+        android:src="@drawable/imagen_default_logo_lugar"
+        android:scaleType="fitXY"
+        android:adjustViewBounds="true"/>
+
 
     <TextView
         android:id="@+id/txtId"

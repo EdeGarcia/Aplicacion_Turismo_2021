@@ -30,7 +30,7 @@
     <string name="txvConfirmarContraAdmin">Confirmar contraseña</string>
     <string name="txvTelefonoAdmin">Telefono</string>
     <string name="btnSiguienteAdmin">Siguiente</string>
-    <string name="txvVersion">Versión.</string>
+    <string name="txvVersion">Versión: 7.0</string>
     <string name="txvV">V: 7.0</string>
     <string name="txvCreadores">Creadores de la App: </string>
     <string name="txvNombreCreador1">Tatiana </string>

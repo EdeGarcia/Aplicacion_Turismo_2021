@@ -16,6 +16,8 @@
             android:id="@+id/imgFotoPerfilLugar"
             android:layout_width="match_parent"
             android:layout_height="170dp"
+            android:scaleType="fitXY"
+            android:adjustViewBounds="true"
             android:src="@drawable/imagen_default_logo_lugar"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintRight_toRightOf="parent"

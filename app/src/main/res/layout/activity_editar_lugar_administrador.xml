@@ -8,39 +8,29 @@
     tools:context=".View.EditarLugarAdministradorActivity">
 
 
-    <TextView
-        android:id="@+id/tvTituloEditarAdmin"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="@string/texto_registro_admin_1"
-        android:textAlignment="center"
-        android:textSize="20sp"
-        android:textColor="@color/black"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageView
-        android:id="@+id/imgPerfil"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/imgPerfilEditar"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
         android:src="@drawable/icono_perfil_administrador"
-        app:layout_constraintTop_toBottomOf="@+id/tvTituloEditarAdmin"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        android:layout_marginTop="20dp"
-        tools:ignore="MissingConstraints" />
+        android:layout_marginTop="10dp"
+        tools:ignore="MissingConstraints"
+        android:scaleType="fitXY"
+        android:adjustViewBounds="true"
+        app:shapeAppearanceOverlay="@style/Circular"/>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/btnAgregarImagenPerfilAdmin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="112dp"
+        android:layout_marginTop="72dp"
         android:backgroundTint="@color/dark_blue"
         android:src="@android:drawable/ic_menu_edit"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.613"
+        app:layout_constraintHorizontal_bias="0.647"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:tint="@color/white"
@@ -54,7 +44,7 @@
         app:layout_constraintBottom_toBottomOf="@+id/layoutDescripcionAdmin"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imgPerfil"
+        app:layout_constraintTop_toBottomOf="@+id/imgPerfilEditar"
         app:layout_constraintVertical_bias="0.07"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         >

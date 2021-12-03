@@ -70,11 +70,11 @@ public class GaleriaPresenter {
                 if(datasnapshot.exists()){
                     for(DataSnapshot ds: datasnapshot.getChildren()){
                         String idUsuario = ds.child("idLugar").getValue().toString();
-                        idG = ds.child("id").getValue().toString();
+                        String idg= ds.child("id").getValue().toString();
                         String fecha = ds.child("fecha").getValue().toString();
                         String url = ds.child("imgUrl").getValue().toString();
 
-                        galeriaList.add(new Galeria(idG,url, fecha, idUsuario));
+                        galeriaList.add(new Galeria(idg,url, fecha, idUsuario));
                         /// se manda el valor 0 tipo = LugarTuristico
                         lTadapter = new GaleriaAdapter(((Activity)context), (ArrayList<Galeria>) galeriaList, R.layout.galeri_item,0);
                         grid.setAdapter(lTadapter);

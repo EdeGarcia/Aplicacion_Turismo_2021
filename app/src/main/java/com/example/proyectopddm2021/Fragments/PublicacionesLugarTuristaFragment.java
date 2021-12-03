@@ -80,11 +80,9 @@ public class PublicacionesLugarTuristaFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_publicaciones_lugar_turista, container, false);
-        tvNombrePostT = (TextView) v.findViewById(R.id.tvNombrePostListT);
         tvNomTurista = (TextView) v.findViewById(R.id.tvNombreTuristaList);
         tvDescripcionPostT = (TextView) v.findViewById(R.id.tvDescripcionPostListT);
         imvImagenPostT = (ImageView) v.findViewById(R.id.imgPostListT);
-        imvPerfilPostT = (ImageView) v.findViewById(R.id.imgLugarPostListT);
         recyclerView = (RecyclerView) v.findViewById(R.id.recyclerPublicacionesT);
         activity = getActivity();
 

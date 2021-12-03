@@ -58,55 +58,6 @@ public class PublicacionesLugarTuristicoAdapter extends RecyclerView.Adapter<Pub
     public void onBindViewHolder(@NonNull PublicacionesLugarTuristicoAdapter.PublicacionesViewHolder holder, int position) {
         Publicacion publicacion = arrayListPublicacion.get(position);
 
-        holder.tvDescripcion.setText(publicacion.getTexto());
-        holder.IdPublicacion = publicacion.getId();
-        holder.tvNombre.setText(publicacion.getUsuario());
-        holder.UrlImagen  = publicacion.getImgUrl();
-        Glide.with(mContext).load(holder.UrlImagen).into(holder.imgLugar);
-
-        holder.deletePublication.setOnClickListener(v ->{
-            new AlertDialog.Builder(mContext)
-                    .setTitle("Eliminar")
-                    .setMessage("¿Está seguro que desea eliminar la publicación?")
-                    .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int which) {
-                            //OK
-                            StorageReference photoRef = FirebaseStorage.getInstance().getReferenceFromUrl(publicacion.getImgUrl());
-
-                            photoRef.delete().addOnSuccessListener(new OnSuccessListener<Void>() {
-                                @Override
-                                public void onSuccess(Void aVoid) {
-                                    // Eliminar de la base de datos y storage
-                                    dao.deletePublication(publicacion.getId());
-
-                                    notifyDataSetChanged();
-
-                                    Toast.makeText(mContext, "¡Eliminado con éxito!",Toast.LENGTH_LONG).show();
-                                }
-                            }).addOnFailureListener(new OnFailureListener() {
-                                @Override
-                                public void onFailure(@NonNull Exception exception) {
-                                    // Uh-oh, an error occurred!
-                                    Toast.makeText(mContext, "¡Ocurrió un error!",Toast.LENGTH_LONG).show();
-                                }
-                            });
-                        }
-                    })
-
-                    // CANCEL
-                    .setNegativeButton(android.R.string.no, null)
-                    .setIcon(android.R.drawable.ic_dialog_alert)
-                    .show();
-        });
-
-        holder.editPublication.setOnClickListener( w -> {
-            Intent intent = new Intent(mContext, EditarPublicacionesAdministradorActivity.class);
-
-            intent.putExtra("publicacion", publicacion);
-
-            w.getContext().startActivity(intent);
-        });
-
         if(tipo==0){
             holder.tvDescripcion.setText(publicacion.getTexto());
             holder.IdPublicacion = publicacion.getId();
@@ -148,6 +99,13 @@ public class PublicacionesLugarTuristicoAdapter extends RecyclerView.Adapter<Pub
                         .setIcon(android.R.drawable.ic_dialog_alert)
                         .show();
             });
+            holder.editPublication.setOnClickListener( w -> {
+                Intent intent = new Intent(mContext, EditarPublicacionesAdministradorActivity.class);
+
+                intent.putExtra("publicacion", publicacion);
+
+                w.getContext().startActivity(intent);
+            });
         }else if(tipo==1){
             holder.tvDescripcionT.setText(publicacion.getTexto());
             holder.IdPublicacionT = publicacion.getId();
@@ -182,7 +140,6 @@ public class PublicacionesLugarTuristicoAdapter extends RecyclerView.Adapter<Pub
             imgLugar = (ImageView) itemView.findViewById(R.id.imgPostList);
 
             //botones Turista
-            tvNombreT = (TextView) itemView.findViewById(R.id.tvNombrePostListT);
             tvDescripcionT = (TextView) itemView.findViewById(R.id.tvDescripcionPostListT);
             imgTurista = (ImageView) itemView.findViewById(R.id.imgPostListT);
 

@@ -31,7 +31,7 @@ import com.google.firebase.storage.StorageReference;
 
 import java.util.ArrayList;
 
-public class GaleriaAdapter extends BaseAdapter {
+public class  GaleriaAdapter extends BaseAdapter {
     ImageView img;
     CardView cardEliminar;
     Context context;

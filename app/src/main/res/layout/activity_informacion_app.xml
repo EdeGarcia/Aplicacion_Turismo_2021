@@ -13,34 +13,26 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:text="@string/txvVersion"
-        android:textColor="@color/black"
-        android:textSize="20sp"
+        android:textColor="@color/dark_blue"
+        android:textStyle="bold"
+        android:textSize="27sp"
+        android:textAlignment="center"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/txvV"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="16dp"
-        android:text="@string/txvV"
-        android:textColor="@color/black"
-        android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txvVersionApp" />
 
     <TextView
         android:id="@+id/txvCreadores"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="20dp"
         android:text="@string/txvCreadores"
-        android:textColor="@color/black"
-        android:textSize="18sp"
+        android:textColor="@color/dark_blue"
+        android:textSize="20sp"
+        android:textAlignment="center"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txvV"
+        app:layout_constraintTop_toBottomOf="@+id/txvVersionApp"
         />
 
 
@@ -50,10 +42,11 @@
         android:layout_width="70dp"
         android:layout_height="70dp"
         android:layout_marginTop="36dp"
-        android:src="@drawable/icono_perfil_administrador"
+        android:src="@drawable/logo_usuario_dark"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txvCreadores"
-        tools:ignore="MissingConstraints" />
+        tools:ignore="MissingConstraints"
+        android:layout_marginLeft="30dp"/>
 
     <TextView
         android:id="@+id/txvNombreCreador1"
@@ -64,6 +57,7 @@
         android:text="@string/txvNombreCreador1"
         android:textColor="@color/black"
         android:textSize="16sp"
+
         app:layout_constraintStart_toEndOf="@+id/imgCreador1"
         app:layout_constraintTop_toBottomOf="@+id/txvCreadores" />
 
@@ -85,10 +79,11 @@
         android:layout_width="70dp"
         android:layout_height="70dp"
         android:layout_marginTop="36dp"
-        android:src="@drawable/icono_perfil_administrador"
+        android:src="@drawable/logo_usuario_dark"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imgCreador1"
-        tools:ignore="MissingConstraints" />
+        tools:ignore="MissingConstraints"
+        android:layout_marginLeft="30dp"/>
 
     <TextView
         android:id="@+id/txvNombreCreador2"
@@ -120,10 +115,11 @@
         android:layout_width="70dp"
         android:layout_height="70dp"
         android:layout_marginTop="36dp"
-        android:src="@drawable/icono_perfil_administrador"
+        android:src="@drawable/logo_usuario_dark"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imgCreador2"
-        tools:ignore="MissingConstraints" />
+        tools:ignore="MissingConstraints"
+        android:layout_marginLeft="30dp"/>
 
     <TextView
         android:id="@+id/txvNombreCreador3"
@@ -154,10 +150,11 @@
         android:layout_width="70dp"
         android:layout_height="70dp"
         android:layout_marginTop="36dp"
-        android:src="@drawable/icono_perfil_administrador"
+        android:src="@drawable/logo_usuario_dark"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imgCreador3"
-        tools:ignore="MissingConstraints" />
+        tools:ignore="MissingConstraints"
+        android:layout_marginLeft="30dp"/>
 
     <TextView
         android:id="@+id/txvNombreCreador4"
@@ -189,8 +186,9 @@
         android:layout_width="70dp"
         android:layout_height="70dp"
         android:layout_marginTop="36dp"
-        android:src="@drawable/icono_perfil_administrador"
+        android:src="@drawable/logo_usuario_dark"
         app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginLeft="30dp"
         app:layout_constraintTop_toBottomOf="@+id/imgCreador4"
         tools:ignore="MissingConstraints" />
 

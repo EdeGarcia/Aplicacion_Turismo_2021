@@ -40,7 +40,13 @@ public class LugarTuristicoDAO {
         lugarTuristico.setId(IdCurrentUser());
         lugarTuristico.setTipoUsuario("Administrador");
         return databaseReference.child(IdCurrentUser()).setValue(lugarTuristico);
+    }
+    public Task<Void> addFotoPerfil(LugarTuristico lugarTuristico){
+        return databaseReference.child(IdCurrentUser()).child("imgUri").setValue(lugarTuristico.getImgUri());
+    }
 
+    public void delete(String id){
+        databaseReference.child(id).child("imgUri").removeValue();
     }
 
     public Task<AuthResult> login(LugarTuristico lugarTuristico){

@@ -1,35 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-    <group android:checkableBehavior="single"
-        android:id="@+id/group1">
-        <item android:id="@+id/nav_home"
-            android:icon="@drawable/ic_baseline_home_24"
-            android:title="@string/principal">
+    <group android:id="@+id/group1">
+        <item
+            android:id="@+id/nav_home"
+            android:icon="@drawable/casa"
+            android:title="@string/principal"
+            android:visible="true">
 
         </item>
-        <item android:id="@+id/nav_drawer1"
-            android:icon="@drawable/ic_baseline_smartphone_24"
-            android:title="@string/MiPerfil">
-        </item>
-        <item android:id="@+id/nav_drawer2"
-            android:icon="@drawable/ic_baseline_smartphone_24"
-            android:title="@string/favs">
-        </item>
-        <item android:id="@+id/nav_drawer3"
-            android:icon="@drawable/ic_baseline_smartphone_24"
-            android:title="@string/info_app">
-        </item>
-        <item android:id="@+id/nav_drawer4"
-            android:icon="@drawable/ic_baseline_smartphone_24"
-            android:title="@string/quit">
-        </item>
-        </group>
+        <item
+            android:id="@+id/nav_perfil"
+            android:icon="@drawable/usuario"
+            android:title="@string/MiPerfil"></item>
+        <item
+            android:id="@+id/nav_favoritos"
+            android:icon="@drawable/favoritos"
+            android:title="@string/favs"></item>
+        <item
+            android:id="@+id/nav_info"
+            android:icon="@drawable/informacion"
+            android:title="@string/info_app"></item>
+        <item
+            android:id="@+id/nav_sesiom"
+            android:icon="@drawable/logout"
+            android:title="@string/quit"></item>
+    </group>
 
 
     <group android:checkableBehavior="single"
         android:id="@+id/group2">
         <item android:id="@+id/nav_share"
-            android:icon="@drawable/ic_baseline_share_24"
+            android:icon="@drawable/compartir"
             android:title="@string/share">
         </item>
     </group>

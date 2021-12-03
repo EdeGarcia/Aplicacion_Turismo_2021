@@ -47,14 +47,13 @@ public class PrincipalAdministradorActivity extends AppCompatActivity {
 
         contextOfApplication = getApplicationContext();
 
-        imgPerfil = (ImageView) findViewById(R.id.imgFotoPerfilLugar);
-        //btnAgregarImg = (FloatingActionButton) findViewById(R.id.btnAgregarFotoPerfilLugar);
+        imgPerfil = (ImageView) findViewById(R.id.imgFotoPerfil);
         txtNombre = (TextView) findViewById(R.id.txtNombreLugar);
         txtCorreo = (TextView) findViewById(R.id.txtCorreoLugar);
         btnPerfil = (Button) findViewById(R.id.btnPefil);
         btnPublicaciones = (Button) findViewById(R.id.btnPublicaciones);
 
-        presenter.DatosPrincipal(txtNombre,txtCorreo);
+        presenter.DatosPrincipal(txtNombre,txtCorreo, getContextOfApplication(), imgPerfil);
 
         btnPerfil.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -68,47 +67,42 @@ public class PrincipalAdministradorActivity extends AppCompatActivity {
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+
                 switch (menuItem.getItemId())
                 {
                     case  R.id.nav_home:
 
                         Intent intent = new Intent(PrincipalAdministradorActivity.this, PrincipalAdministradorActivity.class);
                         startActivity(intent);
+                        finish();
                         break;
 
-                        /*case R.id.nav_drawer1:
-                        Intent intent1 = new Intent(PrincipalAdministradorActivity.this, .class);
+                    case R.id.nav_perfil:
+                        Intent intent1 = new Intent(PrincipalAdministradorActivity.this, PerfilLugarAdministradorActivity.class);
                         startActivity(intent1);
+                        finish();
+                        break;
 
-                        break;*/
+                    case R.id.nav_favoritos:
+                        //Intent intent2 = new Intent(PrincipalAdminisradorActivity.this, .class);
+                        //startActivity(intent2);
 
-                    /*case R.id.nav_drawer2:
-                        Intent intent2 = new Intent(PrincipalAdminisradorActivity.this, .class);
-                        startActivity(intent2);
+                        break;
 
-                        break;*/
-
-                    case R.id.nav_drawer3:
+                    case R.id.nav_info:
 
                         Intent intent3 = new Intent(PrincipalAdministradorActivity.this, InformacionAppActivity.class);
                         startActivity(intent3);
+                        finish();
                         break;
 
-                    case R.id.nav_drawer4:
+                    case R.id.nav_sesiom:
                         dao.signOut();
                         Intent intent4 = new Intent(PrincipalAdministradorActivity.this, LoginUsuariosActivity.class);
                         startActivity(intent4);
+                        finish();
                         break;
 
-//Paste your privacy policy link
-
-//                    case  R.id.nav_Policy:{
-//
-//                        Intent browserIntent  = new Intent(Intent.ACTION_VIEW , Uri.parse(""));
-//                        startActivity(browserIntent);
-//
-//                    }
-                    //       break;
                     case  R.id.nav_share:{
 
                         Intent sharingIntent = new Intent(android.content.Intent.ACTION_SEND);
