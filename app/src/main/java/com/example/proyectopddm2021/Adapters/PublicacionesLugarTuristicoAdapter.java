@@ -109,7 +109,7 @@ public class PublicacionesLugarTuristicoAdapter extends RecyclerView.Adapter<Pub
         }else if(tipo==1){
             holder.tvDescripcionT.setText(publicacion.getTexto());
             holder.IdPublicacionT = publicacion.getId();
-            holder.tvNombreT.setText(publicacion.getUsuario());
+//            holder.tvNombreT.setText(publicacion.getUsuario());
             holder.UrlImagenT  = publicacion.getImgUrl();
             Glide.with(mContext).load(holder.UrlImagenT).into(holder.imgTurista);
         }
